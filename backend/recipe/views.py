@@ -29,3 +29,13 @@ def user_recipe(request):
         recipe = Recipe.objects.filter(user_id=request.user.id)
         serializer = RecipeSerializer(recipe, many=True)
         return Response(serializer.data)
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def recipe_details(request, pk):
+    music = get_object_or_404(Recipe, pk=pk)
+    if request.method == 'PUT':
+        serializer = RecipeSerializer(music, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
