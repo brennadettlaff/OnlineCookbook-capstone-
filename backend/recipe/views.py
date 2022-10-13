@@ -16,12 +16,16 @@ def recipe_list(request):
         serializer = RecipeSerializer(recipe, many=True)
         return Response(serializer.data)
 
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 @permission_classes([IsAuthenticated])
-def create_recipe(request):
+def user_recipe(request):
     if request.method == 'POST':
         serializer = RecipeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user = request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'GET':
+        recipe = Recipe.objects.filter(user_id=request.user.id)
+        serializer = RecipeSerializer(recipe, many=True)
+        return Response(serializer.data)
