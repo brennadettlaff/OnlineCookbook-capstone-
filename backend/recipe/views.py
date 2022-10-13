@@ -30,12 +30,20 @@ def user_recipe(request):
         serializer = RecipeSerializer(recipe, many=True)
         return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def recipe_details(request, pk):  
+    if request.method == 'GET':
+        recipe = Recipe.objects.filter(pk=pk)
+        serializer = RecipeSerializer(recipe, many=True)
+        return Response(serializer.data)
+
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
-def recipe_details(request, pk):
-    music = get_object_or_404(Recipe, pk=pk)
+def edit_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
     if request.method == 'PUT':
-        serializer = RecipeSerializer(music, data=request.data)
+        serializer = RecipeSerializer(recipe, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
