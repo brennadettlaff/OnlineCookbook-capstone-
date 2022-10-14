@@ -38,7 +38,7 @@ def recipe_details(request, pk):
         serializer = RecipeSerializer(recipe, many=True)
         return Response(serializer.data)
 
-@api_view(['PUT'])
+@api_view(['PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def edit_recipe(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
@@ -47,3 +47,6 @@ def edit_recipe(request, pk):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    elif request.method == 'DELETE':
+        recipe.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
