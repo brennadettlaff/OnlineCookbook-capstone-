@@ -26,7 +26,7 @@ def add_ingredient(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['PUT'])
+@api_view(['PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def edit_ingredient(request, pk):
     recipe = get_object_or_404(Ingredients, pk=pk)
@@ -35,3 +35,6 @@ def edit_ingredient(request, pk):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    elif request.method == 'DELETE':
+        recipe.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
