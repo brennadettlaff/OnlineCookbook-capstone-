@@ -15,3 +15,13 @@ def ri_list(request):
         recipe = Recipe_Ingredients.objects.all()
         serializer = Recipe_IngredientsSerializer(recipe, many=True)
         return Response(serializer.data)
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_junction(request):
+    if request.method == 'POST':
+        serializer = Recipe_IngredientsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user = request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
