@@ -16,3 +16,22 @@ def notes_list(request, recipe_id):
         serializer = NotesSerializer(recipe, many=True)
         return Response(serializer.data)
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_note(request):
+    if request.method == 'POST':
+        serializer = NotesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user = request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated]) 
+def edit_note(request, pk):
+    recipe = get_object_or_404(Notes, pk=pk)
+    if request.method == 'PUT':
+        serializer = NotesSerializer(recipe, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
