@@ -9,4 +9,4 @@ class NotesSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'recipe', 'text', 'recipe_id']
         depth = 1
 
-        recipe_id = serializers.IntegerField(write_only=True)
+    recipe_id = serializers.IntegerField(write_only=True)
