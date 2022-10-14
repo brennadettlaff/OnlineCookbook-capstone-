@@ -10,8 +10,9 @@ from .serializers import NotesSerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def notes_list(request):  
+def notes_list(request, recipe_id):  
     if request.method == 'GET':
-        recipe = Notes.objects.all()
+        recipe = Notes.objects.filter(recipe_id=recipe_id)
         serializer = NotesSerializer(recipe, many=True)
         return Response(serializer.data)
+
