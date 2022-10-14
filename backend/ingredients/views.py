@@ -15,3 +15,14 @@ def ingredients_list(request):
         recipe = Ingredients.objects.all()
         serializer = IngredientsSerializer(recipe, many=True)
         return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_ingredient(request):
+    if request.method == 'POST':
+        serializer = IngredientsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user = request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
