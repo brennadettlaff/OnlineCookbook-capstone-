@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 const DisplayRecipe = () => {
-  const [recipe, setRecipe] = useState({});
+  const [recipe, setRecipe] = useState([]);
 
   useEffect(() => {
     getRecipe();
@@ -19,23 +19,17 @@ const DisplayRecipe = () => {
 
     return ( 
         <div>
-          <h1>test</h1>
           <div>
             {recipe.map((entry, index) => {
               return(
                 <div key={index}>
-                  <h3>{entry.name}</h3>
-          </div>)})}
-        </div>
-          {/* <div>
-            {recipe &&
-              recipe.map((recipe) => (
-                <p key={recipe.id}>
-                  {recipe.name}
-                </p>
-              ))}
-          </div> */}
-          {/* <h1>{recipe[0].name}</h1> */}
+                  <h1>{entry.name}</h1>
+                  <h4>{entry.time}</h4>
+                  <h3>{entry.description}</h3>
+                  <h3>{entry.instructions}</h3>
+                </div>
+              )})}
+          </div>
         </div>
      );
 }

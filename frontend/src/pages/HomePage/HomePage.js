@@ -4,12 +4,13 @@ import DisplayRecipe from "../../components/DisplayRecipe/DisplayRecipe";
 
 
 const HomePage = () => {
-  const [user, token] = useAuth();
+  const [user] = useAuth();
 
   return (
     <div>
       <div>Welcome {user.first_name}</div>
       <DisplayRecipe />
+
     </div>
   );
 };
