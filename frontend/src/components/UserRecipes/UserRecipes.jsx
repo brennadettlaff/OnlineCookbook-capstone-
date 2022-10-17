@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
 const UserRecipes = () => {
     const [user, token] = useAuth();
     const [userRecipes, setUserRecipes] = useState([])
-    console.log("users recipes:", userRecipes) 
+    
+    let navigate = useNavigate();
 
     useEffect(()=> {
         getUsersRecipes();
@@ -26,7 +28,7 @@ const UserRecipes = () => {
             {userRecipes.map((entry, index) => {
               return(
                 <div key={index}>
-                    <h3>{entry.name}</h3>
+                    <h3 onClick={() => navigate(`/recipe/${entry.id}`)}>{entry.name}</h3>
                     <div>{entry.description}</div>
                 </div>
             )})}
