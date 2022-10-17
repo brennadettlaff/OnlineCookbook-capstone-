@@ -1,7 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
 import axios from "axios";
+
+import Ingredients from "../../components/Ingredients/Ingredients";
+
 
 
 const DisplayRecipe = () => {
@@ -30,6 +32,9 @@ const DisplayRecipe = () => {
                 </div>
               )})}
           </div>
+          <h2>Ingridents</h2>
+          <Ingredients />
+
         </div>
      );
 }

@@ -11,7 +11,7 @@ const Ingredients = () => {
       }, [])
     
       async function getIngredients(){
-        let response = await axios.get('http://127.0.0.1:8000/api/recipe_ingredients/')
+        let response = await axios.get('http://127.0.0.1:8000/api/recipe_ingredients/recipe/1/')
         console.log(response.data)
         setIngredients(response.data)
       }
@@ -22,8 +22,7 @@ const Ingredients = () => {
             {ingredients.map((entry, index) => {
               return(
                 <div key={index}>
-                  <h1>{entry.ingredients.name}</h1>
-                  <h1>{entry.recipe.name}</h1>
+                  <h3>{entry.ingredients.name}</h3>
                 </div>
               )})}
           </div>
