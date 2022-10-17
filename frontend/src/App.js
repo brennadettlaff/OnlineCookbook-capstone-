@@ -30,7 +30,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/recipe" element={<RecipePage />} />
+        <Route path="/recipe/:id" element={<RecipePage />} />
       </Routes>
       <Footer />
     </div>
