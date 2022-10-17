@@ -19,7 +19,6 @@ const DisplayRecipe = () => {
 
   async function getRecipe(){
     let response = await axios.get(`http://127.0.0.1:8000/api/recipe/details/${recipeId}/`)
-    console.log("recipe", response.data)
     setRecipe(response.data)
   }
 

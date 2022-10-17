@@ -8,7 +8,8 @@ const HomePage = () => {
 
   return (
     <div>
-      <div>Welcome {user.first_name}</div>
+      <h1>Welcome {user.first_name}</h1>
+      <h2>Recipes:</h2>
       <UserRecipes />
 
     </div>

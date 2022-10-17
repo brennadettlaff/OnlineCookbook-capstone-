@@ -19,7 +19,6 @@ const UserRecipes = () => {
                 Authorization: "Bearer " + token,
             },
         })
-        console.log(response.data)
         setUserRecipes(response.data)
         }
 
