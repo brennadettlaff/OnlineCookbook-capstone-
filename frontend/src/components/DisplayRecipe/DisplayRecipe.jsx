@@ -14,8 +14,8 @@ const DisplayRecipe = () => {
   }, [])
 
   async function getRecipe(){
-    let response = await axios.get('http://127.0.0.1:8000/api/recipe/details/2/')
-    console.log(response.data)
+    let response = await axios.get('http://127.0.0.1:8000/api/recipe/details/1/')
+    console.log("recipe", response.data)
     setRecipe(response.data)
   }
 
@@ -27,14 +27,14 @@ const DisplayRecipe = () => {
                 <div key={index}>
                   <h1>{entry.name}</h1>
                   <h4>{entry.time}</h4>
-                  <h3>{entry.description}</h3>
+                  <h4>{entry.description}</h4>
+                  <h2>Directions</h2>
                   <h3>{entry.instructions}</h3>
+                  <h2>Ingredients</h2>
+                  <Ingredients id={entry.id}/>
                 </div>
               )})}
           </div>
-          <h2>Ingridents</h2>
-          <Ingredients />
-
         </div>
      );
 }
