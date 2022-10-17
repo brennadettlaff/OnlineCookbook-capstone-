@@ -4,7 +4,8 @@ import axios from "axios";
 
 const UserRecipes = () => {
     const [user, token] = useAuth();
-    const [recipe, setRecipe] = useState([])
+    const [userRecipes, setUserRecipes] = useState([])
+    console.log("users recipes:", userRecipes) 
 
     useEffect(()=> {
         getUsersRecipes();
@@ -17,13 +18,18 @@ const UserRecipes = () => {
             },
         })
         console.log(response.data)
-        setRecipe(response.log)
-        console.log("recipe:", recipe)
+        setUserRecipes(response.data)
         }
 
-    return ( 
+    return (  
         <div>
-
+            {userRecipes.map((entry, index) => {
+              return(
+                <div key={index}>
+                    <h3>{entry.name}</h3>
+                    <div>{entry.description}</div>
+                </div>
+            )})}
         </div>
      );
 }
