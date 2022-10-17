@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <div>
       <div>Welcome {user.first_name}</div>
-      <DisplayRecipe />
+      {/* <DisplayRecipe /> */}
       <Ingredients />
     </div>
   );

@@ -16,6 +16,22 @@ def ri_list(request):
         serializer = Recipe_IngredientsSerializer(recipe, many=True)
         return Response(serializer.data)
     
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_list(request, user_id):  
+    if request.method == 'GET':
+        recipe = Recipe_Ingredients.objects.filter(user_id=request.user.id)
+        serializer = Recipe_IngredientsSerializer(recipe, many=True)
+        return Response(serializer.data)
+    
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def recipe_list(request, recipe_id):  
+    if request.method == 'GET':
+        recipe = Recipe_Ingredients.objects.filter(recipe_id=recipe_id)
+        serializer = Recipe_IngredientsSerializer(recipe, many=True)
+        return Response(serializer.data)
+    
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_junction(request):
