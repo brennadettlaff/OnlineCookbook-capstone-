@@ -8,7 +8,11 @@ import IngredientsForm from "../../components/IngredientsForm/IngredientsForm";
 
 const AddRecipePage = () => {
   const [user, token] = useAuth();
+  const [newRecipe, setNewRecipe] = useState([])
+  const [newIngredient, setNewIngredient] = useState([])
 
+  console.log(newRecipe)
+  console.log(newIngredient)
 
   async function addNewRecipe(newRecipe){
     let response = await axios.post('http://127.0.0.1:8000/api/recipe/user/', newRecipe, {
@@ -16,6 +20,7 @@ const AddRecipePage = () => {
         Authorization: "Bearer " + token,
     },
     })
+    setNewRecipe(response.data)
   }
 
   async function addNewIngredient(newIngredient){
@@ -24,6 +29,7 @@ const AddRecipePage = () => {
         Authorization: "Bearer " + token,
     },
     })
+    setNewIngredient(response.data)
   }
 
   
@@ -31,6 +37,8 @@ const AddRecipePage = () => {
     <div>
         <RecipeForm addNewRecipe={addNewRecipe}/>
         <IngredientsForm addNewIngredient={addNewIngredient}/>
+        {newIngredient.name}
+
     </div>
   );
 };
