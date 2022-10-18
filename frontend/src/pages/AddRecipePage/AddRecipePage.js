@@ -15,7 +15,6 @@ const AddRecipePage = () => {
         Authorization: "Bearer " + token,
     },
     })
-    console.log(response)
   }
 
   

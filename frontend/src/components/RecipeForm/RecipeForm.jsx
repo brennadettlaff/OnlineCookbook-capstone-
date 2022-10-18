@@ -16,7 +16,6 @@ const RecipeForm = (props) => {
             time: time,
             instructions: instructions,
         };
-        console.log(name, description, time, instructions)
         props.addNewRecipe(newRecipe)
     }
 
