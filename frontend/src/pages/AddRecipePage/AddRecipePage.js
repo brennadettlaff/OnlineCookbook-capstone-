@@ -2,6 +2,7 @@ import RecipeForm from "../../components/RecipeForm/RecipeForm";
 import useAuth from "../../hooks/useAuth";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import IngredientsForm from "../../components/IngredientsForm/IngredientsForm";
 
 
 
@@ -21,7 +22,7 @@ const AddRecipePage = () => {
   return (
     <div>
         <RecipeForm addNewRecipe={addNewRecipe}/>
-
+        <IngredientsForm />
     </div>
   );
 };
