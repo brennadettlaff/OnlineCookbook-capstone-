@@ -1,4 +1,4 @@
-import AddRecipe from "../../components/AddRecipe/AddRecipe";
+import RecipeForm from "../../components/RecipeForm/RecipeForm";
 import useAuth from "../../hooks/useAuth";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -21,7 +21,7 @@ const AddRecipePage = () => {
   
   return (
     <div>
-        <AddRecipe addNewRecipe={addNewRecipe}/>
+        <RecipeForm addNewRecipe={addNewRecipe}/>
 
     </div>
   );

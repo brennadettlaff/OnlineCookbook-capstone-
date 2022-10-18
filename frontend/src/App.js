@@ -14,7 +14,7 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import AddRecipe from "./components/AddRecipe/AddRecipe";
+import AddRecipe from "./components/RecipeForm/RecipeForm";
 
 function App() {
   return (
