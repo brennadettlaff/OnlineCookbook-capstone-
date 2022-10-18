@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
-const AddRecipe = () => {
+const AddRecipe = (props) => {
+    const [id] = useState(0);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [time, setTime] = useState('');
@@ -8,13 +9,15 @@ const AddRecipe = () => {
 
     function handleSubmit(event){
         event.preventDefault();
-        let newRecipe = {
+        const newRecipe = {
+            id: id,
             name: name,
             description: description,
             time: time,
             instructions: instructions,
         };
         console.log(name, description, time, instructions)
+        props.addNewRecipe(newRecipe)
     }
 
 
