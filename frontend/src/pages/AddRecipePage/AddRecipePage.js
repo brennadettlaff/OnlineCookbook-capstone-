@@ -18,11 +18,19 @@ const AddRecipePage = () => {
     })
   }
 
+  async function addNewIngredient(newIngredient){
+    let response = await axios.post('http://127.0.0.1:8000/api/ingredients/add/', newIngredient, {
+      headers: {
+        Authorization: "Bearer " + token,
+    },
+    })
+  }
+
   
   return (
     <div>
         <RecipeForm addNewRecipe={addNewRecipe}/>
-        <IngredientsForm />
+        <IngredientsForm addNewIngredient={addNewIngredient}/>
     </div>
   );
 };

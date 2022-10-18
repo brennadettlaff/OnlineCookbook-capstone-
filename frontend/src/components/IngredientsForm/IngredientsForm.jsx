@@ -6,11 +6,11 @@ const IngredientsForm = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        const newRecipe = {
+        const newIngredient = {
             id: id,
             name: name,
         };
-        props.addNewIngredient(newRecipe)
+        props.addNewIngredient(newIngredient)
     }
 
 
