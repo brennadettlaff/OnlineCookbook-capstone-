@@ -3,7 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IngredientsForm from "../../components/IngredientsForm/IngredientsForm";
-import LinkRecipes from "../../components/LinkRecipes/LinkRecipes";
+// import LinkRecipes from "../../components/LinkRecipes/LinkRecipes";
 
 
 

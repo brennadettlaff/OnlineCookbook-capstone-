@@ -1,32 +1,32 @@
-import React, { useEffect } from "react";
-import useAuth from "../../hooks/useAuth";
+// import React, { useEffect } from "react";
+// import useAuth from "../../hooks/useAuth";
 
 
-const LinkRecipes = (props) => {
+// const LinkRecipes = (props) => {
 
-    const newJunction = {
-        id: id,
-        recipe_id: recipe_id,
-        ingredients_id: ingredients_id
-    }
+//     const newJunction = {
+//         id: id,
+//         recipe_id: recipe_id,
+//         ingredients_id: ingredients_id
+//     }
 
-    async function addJunction(newJunction){
-        let response = await axios.post('http://127.0.0.1:8000/api/recipe_ingredients/add/', newJunction, {
-          headers: {
-            Authorization: "Bearer " + token,
-        },
-        })
-      }
+//     async function addJunction(newJunction){
+//         let response = await axios.post('http://127.0.0.1:8000/api/recipe_ingredients/add/', newJunction, {
+//           headers: {
+//             Authorization: "Bearer " + token,
+//         },
+//         })
+//       }
 
-      useEffect(() => {
-        addJunction(newJunction)
-      })
+//       useEffect(() => {
+//         addJunction(newJunction)
+//       })
 
-    return ( 
-        <div>
+//     return ( 
+//         <div>
 
-        </div>
-     );
-}
+//         </div>
+//      );
+// }
  
-export default LinkRecipes;
+// export default LinkRecipes;
