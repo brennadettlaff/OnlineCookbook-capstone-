@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const AddRecipe = (props) => {
+const RecipeForm = (props) => {
     const [id] = useState(0);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -39,4 +39,4 @@ const AddRecipe = (props) => {
      );
 }
  
-export default AddRecipe;
+export default RecipeForm;
