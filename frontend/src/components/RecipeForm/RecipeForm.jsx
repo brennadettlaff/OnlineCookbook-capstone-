@@ -22,7 +22,7 @@ const RecipeForm = (props) => {
 
     return ( 
         <div>
-            <h1>test</h1>
+            <h1>New Recipe</h1>
             <form onSubmit={handleSubmit}>
                 <label>Name:</label>
                 <input type='text' value={name} onChange={(event) => setName(event.target.value)}></input>
