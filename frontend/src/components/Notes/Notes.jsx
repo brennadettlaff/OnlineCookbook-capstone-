@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth";
 
 
 const Notes = () => {
-    const [token] = useAuth();
+    const [user, token] = useAuth();
     const [notes, setNote] = useState([]);
 
     let recipeId = useParams().id
