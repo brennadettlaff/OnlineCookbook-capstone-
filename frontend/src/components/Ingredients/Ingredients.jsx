@@ -5,13 +5,14 @@ import axios from "axios";
 
 const Ingredients = (props) => {
     const [ingredients, setIngredients] = useState([])
+    console.log(ingredients)
 
     useEffect(() => {
         getIngredients();
       }, [])
     
       async function getIngredients(){
-        let response = await axios.get(`http://127.0.0.1:8000/api/recipe_ingredients/recipe/${props.id}/`)
+        let response = await axios.get(`http://127.0.0.1:8000/api/ingredients/view/${props.id}/`)
         setIngredients(response.data)
       }
 
@@ -21,7 +22,7 @@ const Ingredients = (props) => {
             {ingredients.map((entry, index) => {
               return(
                 <div key={index}>
-                  <h3>{entry.ingredients.name}</h3>
+                  <h3>{entry.name}</h3>
                 </div>
               )})}
           </div>
