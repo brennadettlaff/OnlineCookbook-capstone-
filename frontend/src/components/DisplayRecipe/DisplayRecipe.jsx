@@ -10,7 +10,6 @@ import Ingredients from "../../components/Ingredients/Ingredients";
 const DisplayRecipe = () => {
   const [recipe, setRecipe] = useState([]);
 
-  console.log("Params", useParams().id)
   let recipeId = useParams().id
 
   useEffect(() => {

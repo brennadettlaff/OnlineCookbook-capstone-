@@ -8,12 +8,10 @@ const Ingredients = (props) => {
 
     useEffect(() => {
         getIngredients();
-        console.log('ID:', props.id)
       }, [])
     
       async function getIngredients(){
         let response = await axios.get(`http://127.0.0.1:8000/api/recipe_ingredients/recipe/${props.id}/`)
-        console.log(response.data)
         setIngredients(response.data)
       }
 
