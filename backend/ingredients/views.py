@@ -38,3 +38,12 @@ def edit_ingredient(request, pk):
     elif request.method == 'DELETE':
         recipe.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def recipe_ingredients(request, recipe_id):  
+    if request.method == 'GET':
+        recipe = Ingredients.objects.filter(recipe_id=recipe_id)
+        serializer = IngredientsSerializer(recipe, many=True)
+        return Response(serializer.data)
