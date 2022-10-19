@@ -15,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
+import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/recipe/:id" element={<RecipePage />} />
+        <Route path="/edit/:id" element={<EditRecipePage />} />
         <Route path="/addrecipe/" element={<AddRecipePage />} />
       </Routes>
       <Footer />
