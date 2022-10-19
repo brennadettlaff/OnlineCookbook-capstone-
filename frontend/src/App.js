@@ -11,6 +11,7 @@ import RecipePage from "./pages/RecipePage/RecipePage"
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -21,6 +22,8 @@ function App() {
   return (
     <div>
       <Navbar />
+      <SearchBar />
+      
       <Routes>
         <Route
           path="/"
