@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import RecipePage from "./pages/RecipePage/RecipePage"
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -23,7 +24,7 @@ function App() {
     <div>
       <Navbar />
       <SearchBar />
-      
+
       <Routes>
         <Route
           path="/"
@@ -38,6 +39,7 @@ function App() {
         <Route path="/recipe/:id" element={<RecipePage />} />
         <Route path="/edit/:id" element={<EditRecipePage />} />
         <Route path="/addrecipe/" element={<AddRecipePage />} />
+        <Route path="/search/" element={<SearchPage />} />
       </Routes>
       <Footer />
     </div>
