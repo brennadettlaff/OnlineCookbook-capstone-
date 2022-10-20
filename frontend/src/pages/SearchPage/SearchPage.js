@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import RecipePage from "../RecipePage/RecipePage";
 
 const SearchPage = (props) => {
     const [allRecipes, setAllRecipes] = useState([])
@@ -28,12 +27,22 @@ const SearchPage = (props) => {
             }
         })
         setSearchResults(filteredResults)
+        // debugger
         console.log(filteredResults)
     }
 
     return ( 
         <div>
-            
+            {console.log("Filtered Results:", searchResults)}
+            <>test</>
+            {searchResults.map((entry, index) =>{
+                return(
+                    <div key={index}>
+                        <h3>{entry.name}</h3>
+                        <div>{entry.description} </div>
+                    </div>
+                )
+            })}
         </div>
      );
 }

@@ -24,6 +24,7 @@ const UserRecipes = () => {
 
     return (  
         <div>
+            {console.log("user", userRecipes)}
             {userRecipes.map((entry, index) => {
               return(
                 <div key={index}>
