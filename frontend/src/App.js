@@ -1,4 +1,5 @@
 // General Imports
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -20,6 +21,17 @@ import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
 
 function App() {
+  const [data, setData] = useState('');
+
+  useEffect(() => {
+    passedSearchTerm();
+  })
+
+  function passedSearchTerm(search_term){
+    let response = search_term 
+    setData(response)
+  };
+
   return (
     <div>
       <Navbar />
