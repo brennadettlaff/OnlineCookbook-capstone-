@@ -2,23 +2,18 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 const SearchPage = (props) => {
-    const [allRecipes, setAllRecipes] = useState([])
+    // const [allRecipes, setAllRecipes] = useState([])
     const [searchResults, setSearchResults] = useState([])
 
-    let searchTerm = props.data
+    let searchTerm = props.data.data
+    let allRecipes = props.data.allRecipes
 
-    useEffect(() => {
-        getAllRecipes();
-    }, [searchTerm]);
+    console.log(allRecipes)
+    console.log(searchTerm)
 
-    async function getAllRecipes(){
-        let response = await axios.get('http://127.0.0.1:8000/api/recipe/')
-        setAllRecipes(response.data)
-        if(response.status === 200){
-            filterRecipes(searchTerm);
-        }
-        
-    }
+    useEffect(() =>{
+        filterRecipes(searchTerm)
+    }, [searchTerm])
 
     function filterRecipes(search){
         let filteredResults = allRecipes.filter((recipe)=>{
@@ -27,22 +22,22 @@ const SearchPage = (props) => {
             }
         })
         setSearchResults(filteredResults)
-        // debugger
-        console.log(filteredResults)
     }
 
     return ( 
         <div>
-            {console.log("Filtered Results:", searchResults)}
-            <>test</>
-            {searchResults.map((entry, index) =>{
-                return(
-                    <div key={index}>
-                        <h3>{entry.name}</h3>
-                        <div>{entry.description} </div>
-                    </div>
-                )
-            })}
+            <div>
+                {console.log("Filtered Results:", searchResults)}
+                <>test</>
+                {searchResults.map((entry, index) =>{
+                    return(
+                        <div key={index}>
+                            <h3>{entry.name}</h3>
+                            <div>{entry.description} </div>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
      );
 }

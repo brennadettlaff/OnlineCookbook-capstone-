@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import axios from 'axios';
+
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -22,15 +24,29 @@ import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
 
 function App() {
   const [data, setData] = useState('');
+  const [allRecipes, setAllRecipes] = useState([])
 
   useEffect(() => {
     passedSearchTerm();
-  })
+    getAllRecipes();
+  }, [])
 
   function passedSearchTerm(search_term){
     let response = search_term 
     setData(response)
   };
+
+  async function getAllRecipes(){
+    let response = await axios.get('http://127.0.0.1:8000/api/recipe/')
+    setAllRecipes(response.data)
+  }
+
+  const passedInfo = {
+    data: data, 
+    allRecipes: allRecipes
+  }
+
+  console.log(passedInfo)
 
   return (
     <div>
@@ -51,7 +67,7 @@ function App() {
         <Route path="/recipe/:id" element={<RecipePage />} />
         <Route path="/edit/:id" element={<EditRecipePage />} />
         <Route path="/addrecipe/" element={<AddRecipePage />} />
-        <Route path="/search/" element={<SearchPage  data={data}/>} />
+        <Route path="/search/" element={<SearchPage  data={passedInfo}/>} />
       </Routes>
       <Footer />
     </div>
