@@ -35,7 +35,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <SearchBar />
+      <SearchBar submittedSearchTerm={passedSearchTerm}/>
 
       <Routes>
         <Route
@@ -51,7 +51,7 @@ function App() {
         <Route path="/recipe/:id" element={<RecipePage />} />
         <Route path="/edit/:id" element={<EditRecipePage />} />
         <Route path="/addrecipe/" element={<AddRecipePage />} />
-        <Route path="/search/" element={<SearchPage />} />
+        <Route path="/search/" element={<SearchPage  data={data}/>} />
       </Routes>
       <Footer />
     </div>

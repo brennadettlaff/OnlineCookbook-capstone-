@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const [searchInput, setSearchInput] = useState('');
     let navigate = useNavigate();
 
@@ -10,6 +10,7 @@ const SearchBar = () => {
     function handleSubmit(event) {
         event.preventDefault();
         console.log(searchInput)
+        props.submittedSearchTerm(searchInput)
         navigate('/search')
     };
 

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-const SearchPage = () => {
+const SearchPage = (props) => {
     const [allRecipes, setAllRecipes] = useState([])
+    console.log(props.data)
 
     useEffect(() => {
         getAllRecipes();
-    })
+    }, []);
 
     async function getAllRecipes(){
         let response = await axios.get('http://127.0.0.1:8000/api/recipe/')
