@@ -21,6 +21,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import PrivateRoute from "./utils/PrivateRoute";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 
 function App() {
   const [data, setData] = useState('');
@@ -46,8 +47,6 @@ function App() {
     allRecipes: allRecipes
   }
 
-  console.log(passedInfo)
-
   return (
     <div>
       <Navbar />
@@ -68,6 +67,7 @@ function App() {
         <Route path="/edit/:id" element={<EditRecipePage />} />
         <Route path="/addrecipe/" element={<AddRecipePage />} />
         <Route path="/search/" element={<SearchPage  data={passedInfo}/>} />
+        <Route path="/favorites/" element={<FavoritesPage  />} />
       </Routes>
       <Footer />
     </div>
