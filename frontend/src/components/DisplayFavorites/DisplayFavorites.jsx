@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from 'react-router-dom';
 
 const DisplayFavorites = () => {
     const [favorites, setFavorites] = useState([])
     const [user, token] = useAuth();
-    console.log(favorites)
+    let navigate = useNavigate();
 
     useEffect(() => {
         getFavorites();
@@ -26,7 +27,7 @@ const DisplayFavorites = () => {
             {favorites.map((entry, index) => {
                 return(
                     <div key={index}>
-                        <h3>{entry.recipe.name}</h3>
+                        <h3 onClick={() => navigate(`/recipe/${entry.recipe.id}`)}>{entry.recipe.name}</h3>
                         <div>{entry.recipe.description}</div>
                     </div>
                 )
