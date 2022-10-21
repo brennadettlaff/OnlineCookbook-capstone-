@@ -15,6 +15,11 @@ const Navbar = () => {
             <b>Home</b>
           </Link>
         </li>
+        <li className="brand">
+          <Link to="/favorites/" style={{ textDecoration: "none", color: "white" }}>
+            <b>Favorites</b>
+          </Link>
+        </li>
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
