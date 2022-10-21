@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 const AddFavorite = () => {
     const [user, token] = useAuth();
-    const [favorite, setFavorite] = useAuth([])
     const [id] = useState(0);
     let recipe_id = useParams().id
 
