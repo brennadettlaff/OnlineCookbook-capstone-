@@ -20,7 +20,7 @@ const DisplayFavorites = () => {
             },
         })
         setFavorites(response.data)
-      }
+    }
 
     return ( 
         <div>
@@ -30,7 +30,7 @@ const DisplayFavorites = () => {
                     <div key={index}>
                         <h3 onClick={() => navigate(`/recipe/${entry.recipe.id}`)}>{entry.recipe.name}</h3>
                         <div>{entry.recipe.description}</div>
-                        <RemoveFavorite id={entry.recipe.id}/>
+                        <RemoveFavorite id={entry.id}/>
                     </div>
                 )
             })}
