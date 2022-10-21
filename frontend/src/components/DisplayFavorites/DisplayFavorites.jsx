@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from 'react-router-dom';
+import RemoveFavorite from "../RemoveFavorite/RemoveFavorite";
 
 const DisplayFavorites = () => {
     const [favorites, setFavorites] = useState([])
@@ -29,6 +30,7 @@ const DisplayFavorites = () => {
                     <div key={index}>
                         <h3 onClick={() => navigate(`/recipe/${entry.recipe.id}`)}>{entry.recipe.name}</h3>
                         <div>{entry.recipe.description}</div>
+                        <RemoveFavorite id={entry.recipe.id}/>
                     </div>
                 )
             })}
