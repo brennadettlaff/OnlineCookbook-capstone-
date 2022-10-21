@@ -6,7 +6,5 @@ from .models import Collection
 class CollectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collection
-        fields = ['id', 'user', 'recipe', 'name', 'description']
+        fields = ['id', 'user', 'name', 'description']
         depth = 1
-
-        recipe_id = serializers.IntegerField(write_only=True)
