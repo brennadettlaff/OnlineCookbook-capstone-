@@ -21,7 +21,9 @@ const AddFavorite = () => {
           headers: {
             Authorization: "Bearer " + token,
         },
-        })}
+        })
+        console.log(response)
+    }
 
     return ( 
         <div>

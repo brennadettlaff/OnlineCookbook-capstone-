@@ -5,7 +5,6 @@ import axios from "axios";
 
 const Ingredients = (props) => {
     const [ingredients, setIngredients] = useState([])
-    console.log(ingredients)
 
     useEffect(() => {
         getIngredients();
