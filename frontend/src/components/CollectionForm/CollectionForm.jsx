@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
@@ -14,8 +14,17 @@ const CollectionForm = () => {
             name: name,
             description: description,
         };
+        addNewFavorite(newFavorite)
     }
 
+    async function addNewFavorite(newEntry){
+        let response = await axios.post('http://127.0.0.1:8000/api/collection/', newEntry, {
+          headers: {
+            Authorization: "Bearer " + token,
+        },
+        })
+        window.location.reload();
+    }
 
     return ( 
         <div>
