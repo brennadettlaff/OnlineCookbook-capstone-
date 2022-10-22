@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
-const DispalyCollections = () => {
+const CollectionsList = () => {
     const [collections, setCollections] = useState([])
     const [user, token] = useAuth();
 
@@ -27,4 +27,4 @@ const DispalyCollections = () => {
      );
 }
  
-export default DispalyCollections;
+export default CollectionsList;

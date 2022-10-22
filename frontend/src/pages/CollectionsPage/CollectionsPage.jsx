@@ -1,10 +1,10 @@
 import React from "react";
-import DispalyCollections from "../../components/DisplayCollections/DisplayCollections";
+import CollectionsList from "../../components/CollectionsList/CollectionsList";
 
 const CollectionsPage = () => {
     return ( 
         <div>
-            <DispalyCollections />
+            <CollectionsList />
         </div>
      );
 }
