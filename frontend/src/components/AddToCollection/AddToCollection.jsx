@@ -7,7 +7,23 @@ const AddToCollection = () => {
     const [collections, setCollections] = useState([])
     const [add, setAdd] = useState(true);
     const [user, token] = useAuth();
-   
+    const [id] = useState(0);
+
+    let recipe_id = useParams().id
+
+    function handleNewJunction(collectionId){
+        const newJunction = {
+            id: id,
+            recipe_id: recipe_id,
+            collection_id: collectionId,
+        };
+        createJunction(newJunction)
+    }
+
+    async function createJunction(newEntry){
+        let response = await axios.post('http://127.0.0.1:8000/api/recipe_collection/add/', newEntry)
+        console.log(response)
+    }
 
     useEffect(() => {
         getCollections();
@@ -20,6 +36,7 @@ const AddToCollection = () => {
             },
         })
         setCollections(response.data)
+        console.log(response.data)
     }
 
     return ( 
@@ -31,8 +48,8 @@ const AddToCollection = () => {
                 {collections.map((entry, index) => {
                     return(
                         <div key={index}>
-                            <div>{entry.name}</div>
-                            <button>Add</button>
+                            <div>{entry.name}</div>                            
+                            <button onClick={() => handleNewJunction(entry.id)}>Add</button>
                         </div>
                     )
                 })}
