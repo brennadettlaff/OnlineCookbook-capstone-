@@ -20,6 +20,11 @@ const Navbar = () => {
             <b>Favorites</b>
           </Link>
         </li>
+        <li className="brand">
+          <Link to="/collections/" style={{ textDecoration: "none", color: "white" }}>
+            <b>Collections</b>
+          </Link>
+        </li>
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
