@@ -22,6 +22,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
+import CollectionsPage from "./pages/CollectionsPage/CollectionsPage";
 
 function App() {
   const [data, setData] = useState('');
@@ -68,6 +69,7 @@ function App() {
         <Route path="/addrecipe/" element={<AddRecipePage />} />
         <Route path="/search/" element={<SearchPage  data={passedInfo}/>} />
         <Route path="/favorites/" element={<FavoritesPage  />} />
+        <Route path="/collections/" element={<CollectionsPage  />} />
       </Routes>
       <Footer />
     </div>
