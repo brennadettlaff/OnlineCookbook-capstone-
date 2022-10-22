@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from 'react-router-dom';
 
 const CollectionsList = () => {
     const [collections, setCollections] = useState([])
     const [user, token] = useAuth();
+    let navigate = useNavigate();
 
 
     useEffect(() => {
@@ -18,7 +20,6 @@ const CollectionsList = () => {
             },
         })
         setCollections(response.data)
-        console.log(response.data)
     }
 
     return ( 
@@ -27,7 +28,7 @@ const CollectionsList = () => {
             {collections.map((entry, index) => {
                 return(
                     <div key={index}>
-                        <div>{entry.name}</div>
+                        <h2 onClick={() => navigate(`/collection/${entry.id}`)}>{entry.name}</h2>
                         <div>{entry.description}</div>
                     </div>
                 )
