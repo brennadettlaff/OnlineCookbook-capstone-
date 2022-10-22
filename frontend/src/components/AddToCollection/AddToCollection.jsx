@@ -22,7 +22,6 @@ const AddToCollection = () => {
 
     async function createJunction(newEntry){
         let response = await axios.post('http://127.0.0.1:8000/api/recipe_collection/add/', newEntry)
-        console.log(response)
     }
 
     useEffect(() => {
@@ -36,7 +35,6 @@ const AddToCollection = () => {
             },
         })
         setCollections(response.data)
-        console.log(response.data)
     }
 
     return ( 

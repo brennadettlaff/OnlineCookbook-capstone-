@@ -12,7 +12,6 @@ const HomePage = () => {
     <div>
       <h1>Welcome {user.first_name}</h1>
       <button onClick={() => navigate('/addrecipe/')}>Add Recipe</button>
-      <button onClick={() => navigate('/favorites/')}>See Favorites</button>
       <h2>Recipes:</h2>
       <UserRecipes />
 

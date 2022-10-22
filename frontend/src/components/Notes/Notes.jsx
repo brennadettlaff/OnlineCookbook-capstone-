@@ -28,9 +28,7 @@ const Notes = () => {
       },})
       if(response.status === 201){
         await getNote();
-    }
-      console.log(response)
-    }
+    }}
 
 
     return ( 

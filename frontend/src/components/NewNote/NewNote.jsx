@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const NewNote = (props) => {
     const [id] = useState(0);
     const [text, setText] = useState('');
-    const [recipe_id] = useParams().id;
+    let recipe_id = useParams().id;
 
     function handleSubmit(event){
         event.preventDefault();
@@ -14,8 +14,6 @@ const NewNote = (props) => {
             text: text,
             recipe_id: recipe_id,
         };
-        debugger
-        console.log(newNote)
         props.addNewNote(newNote)
     }
 
