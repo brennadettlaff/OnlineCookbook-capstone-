@@ -6,6 +6,7 @@ const CollectionsList = () => {
     const [collections, setCollections] = useState([])
     const [user, token] = useAuth();
 
+
     useEffect(() => {
         getCollections();
       }, [])
@@ -22,7 +23,15 @@ const CollectionsList = () => {
 
     return ( 
         <div>
-            <>Test</>
+            <h1>{user.username}'s Collections</h1>
+            {collections.map((entry, index) => {
+                return(
+                    <div key={index}>
+                        <div>{entry.name}</div>
+                        <div>{entry.description}</div>
+                    </div>
+                )
+            })}
         </div>
      );
 }
