@@ -15,3 +15,14 @@ def collection_list(request, collection_id):
         collection = Recipe_Collection.objects.filter(collection_id=collection_id)
         serializer = Recipe_CollectionSerializer(collection, many=True)
         return Response(serializer.data)
+    
+    
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def add_junction(request):
+    if request.method == 'POST':
+        serializer = Recipe_CollectionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
