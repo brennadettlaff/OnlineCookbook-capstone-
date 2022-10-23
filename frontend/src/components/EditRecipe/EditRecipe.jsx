@@ -7,26 +7,23 @@ import EditRecipeForm from "../EditRecipeForm/EditRecipeForm";
 
 const EditRecipe = () => {
     const [editRecpie, setEditRecipe] = useState([]);
-    const [user, token] = useAuth();
     let recipe_id = useParams().id;
 
+    const [recipe, setRecipe] = useState([]);
 
-    async function editRecipe(newRecipe){
-        let response = await axios.put(`http://127.0.0.1:8000/api/recipe/edit/${recipe_id}/`, newRecipe, {
-            headers: {
-                Authorization: "Bearer " + token,
-            },
-        })
-        setEditRecipe(response.data)
-        console.log(response)
-        }
-
+    useEffect(() => {
+        getRecipe();
+      }, [])
+    async function getRecipe(){
+        let response = await axios.get(`http://127.0.0.1:8000/api/recipe/details/${recipe_id}/`)
+        setRecipe(response.data[0])
+        console.log(response.data[0])
+      }
 
 
     return ( 
         <div>
-            <EditRecipeForm editRecipe={editRecipe} />
-            <button>Save</button>
+            <EditRecipeForm recipe={recipe} />
         </div>
      );
 }
