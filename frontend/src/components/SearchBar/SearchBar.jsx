@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import "./SearchBar.css";
 
 
 const SearchBar = (props) => {
@@ -14,7 +15,7 @@ const SearchBar = (props) => {
     };
 
     return ( 
-        <div>
+        <div style={{alignContent: 'right'}}>
             <form onSubmit={handleSubmit}>
                 <label>Search for Recipes</label>
                 <input onChange={(event)=>setSearchInput(event.target.value)}/>
