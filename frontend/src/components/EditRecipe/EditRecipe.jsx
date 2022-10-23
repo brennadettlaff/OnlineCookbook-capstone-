@@ -10,6 +10,7 @@ const EditRecipe = () => {
     const [user, token] = useAuth();
     let recipe_id = useParams().id;
 
+
     async function editRecipe(newRecipe){
         let response = await axios.put(`http://127.0.0.1:8000/api/recipe/edit/${recipe_id}/`, newRecipe, {
             headers: {
@@ -18,6 +19,8 @@ const EditRecipe = () => {
         })
         setEditRecipe(response.data)
         }
+
+
 
     return ( 
         <div>

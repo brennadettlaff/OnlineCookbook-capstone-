@@ -27,11 +27,12 @@ const EditRecipePage = () => {
 
     return ( 
         <div>
+            <EditRecipe />
             <Ingredients id={recipeId}/>
             <IngredientsForm addNewIngredient={addNewIngredient}/>
             {newIngredient.name}
             <button onClick={() => navigate(`/recipe/${recipeId}`)}>DONE</button>
-            <EditRecipe />
+          
         </div>
      );
 }
