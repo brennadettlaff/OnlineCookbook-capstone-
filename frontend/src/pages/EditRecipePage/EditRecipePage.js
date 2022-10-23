@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import IngredientsForm from "../../components/IngredientsForm/IngredientsForm";
 import Ingredients from "../../components/Ingredients/Ingredients";
+import EditRecipe from "../../components/EditRecipe/EditRecipe";
 
 
 const EditRecipePage = () => {
@@ -30,6 +31,7 @@ const EditRecipePage = () => {
             <IngredientsForm addNewIngredient={addNewIngredient}/>
             {newIngredient.name}
             <button onClick={() => navigate(`/recipe/${recipeId}`)}>DONE</button>
+            <EditRecipe />
         </div>
      );
 }

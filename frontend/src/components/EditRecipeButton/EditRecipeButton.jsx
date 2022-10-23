@@ -6,9 +6,7 @@ const EditRecipeButton = () => {
     let navigate = useNavigate();
     return ( 
         <div>
-          <button onClick={() => navigate(`/recipe/${pageId}`)}>Edit Recipe</button>
-
-
+          <button onClick={() => navigate(`/edit/${pageId}`)}>Edit Recipe</button>
         </div>
      );
 }

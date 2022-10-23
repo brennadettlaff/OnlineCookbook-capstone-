@@ -31,9 +31,8 @@ const DisplayRecipe = () => {
                   <h4>{entry.time}</h4>
                   <h4>{entry.description}</h4>
                   <h2>Directions</h2>
-                  <h3>{entry.instructions}</h3>
-                  <h2>Ingredients</h2>
-                  <Ingredients id={entry.id}/>
+                  <h3>{entry.instructions}</h3> 
+                  {/* <Ingredients id={entry.id}/> */}
                 </div>
               )})}
           </div>
