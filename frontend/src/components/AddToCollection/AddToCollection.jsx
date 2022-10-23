@@ -40,7 +40,7 @@ const AddToCollection = () => {
     return ( 
         <div>
             {add ? (
-                <button onClick={() => setAdd(!add)}>Add Collection</button>
+                <button onClick={() => setAdd(!add)}>Add to Collection</button>
           ) : (
             <div>
                 {collections.map((entry, index) => {

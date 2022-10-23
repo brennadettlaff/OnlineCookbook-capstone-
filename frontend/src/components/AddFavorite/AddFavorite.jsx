@@ -27,7 +27,7 @@ const AddFavorite = () => {
 
     return ( 
         <div>
-            <p onClick={() => handleFavorite()}>Favorite</p>
+            <button onClick={() => handleFavorite()}>Favorite</button>
         </div>
      );
 }
