@@ -18,13 +18,14 @@ const EditRecipe = () => {
             },
         })
         setEditRecipe(response.data)
+        console.log(response)
         }
 
 
 
     return ( 
         <div>
-            <EditRecipeForm />
+            <EditRecipeForm editRecipe={editRecipe} />
             <button>Save</button>
         </div>
      );
