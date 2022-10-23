@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
+import EditIngredientForm from "../EditIngredientForm/EditIngredientForm";
 
 const EditIngredient = (props) => {
     const [ingredients, setIngredients] = useState([])
@@ -19,7 +20,8 @@ const EditIngredient = (props) => {
             {ingredients.map((entry, index) => {
               return(
                 <div key={index}>
-                  <h3>{entry.name}</h3>
+                    <EditIngredientForm data={entry}/>
+                  {/* <h3>{entry.name}</h3> */}
                 </div>
               )})}
           </div>
