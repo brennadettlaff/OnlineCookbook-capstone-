@@ -18,7 +18,7 @@ const SearchBar = (props) => {
         <div className='align-bar'>
             <form onSubmit={handleSubmit} className='form-style'>
                 <label className='add-space'>Search for Recipes</label>
-                <input className='add-space' onChange={(event)=>setSearchInput(event.target.value)}/>
+                <input onChange={(event)=>setSearchInput(event.target.value)}/>
                 <button className='button' type='submit'>Search</button>
             </form>
         </div>

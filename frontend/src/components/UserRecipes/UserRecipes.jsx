@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import './UserRecipes.css'
 
 const UserRecipes = () => {
     const [user, token] = useAuth();
@@ -23,12 +24,14 @@ const UserRecipes = () => {
         }
 
     return (  
-        <div>
+        <div className="add-space">
             {userRecipes.map((entry, index) => {
               return(
-                <div key={index}>
-                    <h3 onClick={() => navigate(`/recipe/${entry.id}`)}>{entry.name}</h3>
-                    <div>{entry.description}</div>
+                <div className="display-recipes">
+                    <div key={index}>
+                        <h3 onClick={() => navigate(`/recipe/${entry.id}`)}>{entry.name}</h3>
+                        <div>{entry.description}</div>
+                    </div>
                 </div>
             )})}
         </div>

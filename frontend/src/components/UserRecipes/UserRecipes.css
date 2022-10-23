@@ -1,0 +1,14 @@
+.display-recipes{
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 90%; */
+    padding-right: 20em;
+}
+
+.add-space{
+    padding-bottom: 2rem;
+}
+
+h3 {
+    color: rgb(109, 111, 46)
+}
