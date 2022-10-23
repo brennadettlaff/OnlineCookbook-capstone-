@@ -1,4 +1,18 @@
-
-div {
+.align-bar {
+    float: right;
+}
+.form-style {
+    margin: 1em;
+    /* width: 30%; */
+    flex-wrap: wrap;
     align-content: right;
+}
+
+.add-space {
+    margin: .25em;
+}
+
+.button {
+    padding: 1px 6px;
+    font-size: 13px;
 }

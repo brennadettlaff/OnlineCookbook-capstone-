@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
-import "./SearchBar.css";
+import './SearchBar.css';
 
 
 const SearchBar = (props) => {
@@ -15,11 +15,11 @@ const SearchBar = (props) => {
     };
 
     return ( 
-        <div style={{alignContent: 'right'}}>
-            <form onSubmit={handleSubmit}>
-                <label>Search for Recipes</label>
-                <input onChange={(event)=>setSearchInput(event.target.value)}/>
-                <button type='submit'>Search</button>
+        <div className='align-bar'>
+            <form onSubmit={handleSubmit} className='form-style'>
+                <label className='add-space'>Search for Recipes</label>
+                <input className='add-space' onChange={(event)=>setSearchInput(event.target.value)}/>
+                <button className='button' type='submit'>Search</button>
             </form>
         </div>
      );
