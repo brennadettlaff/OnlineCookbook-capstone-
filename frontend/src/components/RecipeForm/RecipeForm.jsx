@@ -31,7 +31,7 @@ const RecipeForm = (props) => {
                 <label>Time:</label>
                 <input type='text' value={time} onChange={(event) => setTime(event.target.value)}></input>
                 <label>Instructions:</label>
-                <input type='text' value={instructions} onChange={(event) => setInstructions(event.target.value)}></input>
+                <textarea type='text' rows='5' value={instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
                 <button type='submit'>Add Recipe</button>
             </form>
         </div>

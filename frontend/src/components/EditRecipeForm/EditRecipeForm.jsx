@@ -5,7 +5,6 @@ import useAuth from "../../hooks/useAuth";
 
 
 const EditRecipeForm = (props) => {
-    const [id] = useState(0);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [time, setTime] = useState('');
@@ -39,9 +38,10 @@ const EditRecipeForm = (props) => {
             instructions: instructions,
         };
         console.log(newRecipe)
-        debugger
         editRecipe(newRecipe)
+        debugger
     }
+
     return ( 
        
         <div>
@@ -52,12 +52,12 @@ const EditRecipeForm = (props) => {
                     type='text'  
                     onChange={(event) => setName(event.target.value)}>
                 </input>
-                <label>Description:</label>
+                <label>Description:</label> 
                 <input type='text' defaultValue={props.recipe.description} onChange={(event) => setDescription(event.target.value)}></input>
                 <label>Time:</label>
                 <input type='text' defaultValue={props.recipe.time} onChange={(event) => setTime(event.target.value)}></input>
                 <label>Instructions:</label>
-                <input type='text' defaultValue={props.recipe.instructions} onChange={(event) => setInstructions(event.target.value)}></input>
+                <textarea type='text' rows='5' defaultValue={props.recipe.instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
                 <button type='submit'>Save</button>
             </form>
         </div>
