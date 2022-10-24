@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import useAuth from "../../hooks/useAuth";
 import { useNavigate, useParams } from "react-router-dom";
 import EditRecipeForm from "../EditRecipeForm/EditRecipeForm";
 
 
 const EditRecipe = () => {
-    const [editRecpie, setEditRecipe] = useState([]);
     let recipe_id = useParams().id;
 
     const [recipe, setRecipe] = useState([]);
