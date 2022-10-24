@@ -21,7 +21,6 @@ const EditIngredient = (props) => {
               return(
                 <div key={index}>
                     <EditIngredientForm data={entry}/>
-                  {/* <h3>{entry.name}</h3> */}
                 </div>
               )})}
           </div>

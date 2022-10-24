@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 
-import Ingredients from "../../components/Ingredients/Ingredients";
-
+import './DisplayRecipe.css'
 
 
 const DisplayRecipe = () => {
@@ -27,12 +26,15 @@ const DisplayRecipe = () => {
             {recipe.map((entry, index) => {
               return(
                 <div key={index}>
-                  <h1>{entry.name}</h1>
-                  <h4>{entry.time}</h4>
-                  <h4>{entry.description}</h4>
-                  <h2>Directions</h2>
-                  <pre><h3>{entry.instructions}</h3> </pre>
-                  {/* <Ingredients id={entry.id}/> */}
+                  <div className="direct-style">
+                    <h1>{entry.name}</h1>
+                    <h4>{entry.description}</h4>
+                  </div>
+                  <div className='time-style'><h4>{entry.time}</h4></div>
+                  <div className="split right">
+                    <h2 >Directions</h2>
+                    <pre><h3>{entry.instructions}</h3> </pre>
+                  </div>
                 </div>
               )})}
           </div>
