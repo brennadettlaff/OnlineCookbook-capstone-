@@ -7,8 +7,11 @@
     margin-left: 3em
 }
 
-.split-left {
-    float: right;
-    margin-top: .5rem;
+.ingred {
+    padding: 1em
     
+}
+
+.note-button {
+    align-items: center;
 }

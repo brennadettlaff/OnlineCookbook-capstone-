@@ -18,13 +18,16 @@ const RecipePage = () => {
  
       <DisplayRecipe />
       
-      <div> 
+      <div className="ingred"> 
         <h2>Ingredients</h2>
         <Ingredients id={id}/>
       </div>
       
-      <h2>Notes</h2>
-      <Notes />
+      <div className="ingred">
+        <h2>Notes</h2>
+        <Notes />
+      </div>
+      
       
     </div>
   );
