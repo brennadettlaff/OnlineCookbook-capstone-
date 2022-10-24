@@ -45,26 +45,26 @@ const EditRecipeForm = (props) => {
     return ( 
         <div className="rec-style">
             <form onSubmit={handleSubmit}>
-                <div className="add-space">
-                    <label>Name:</label>
+                <div >
+                    <label>Name:   </label>
                     <input 
                         ref={ref} defaultValue={props.recipe.name}
                         type='text' className="inp-style"
                         onChange={(event) => setName(event.target.value)}>
                     </input>
                 </div>
-                <div className="add-space">
-                    <label>Time:</label>
+                <div >
+                    <label>Time:   </label>
                     <input type='text' className="inp-style" defaultValue={props.recipe.time} onChange={(event) => setTime(event.target.value)}></input>
                 </div>
-                <div className="add-space">
-                    <label>Description:</label> 
+                <div >
+                    <label>Description: </label> 
                     <input type='text' className="desc-style" defaultValue={props.recipe.description} onChange={(event) => setDescription(event.target.value)}></input>
                 </div>
-                <div className="add-space">
+                <div>
                     <div><label>Instructions:</label></div>
                     <div>
-                        <textarea type='text' rows='10' cols='75' defaultValue={props.recipe.instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
+                        <textarea type='text' rows='10' cols='100' defaultValue={props.recipe.instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
                     </div>
                 </div>
                 <button className="add-space" type='submit'>Save</button>

@@ -8,6 +8,7 @@ import IngredientsForm from "../../components/IngredientsForm/IngredientsForm";
 import Ingredients from "../../components/Ingredients/Ingredients";
 import EditRecipe from "../../components/EditRecipe/EditRecipe";
 import EditIngredient from "../../components/EditIngredient/EditIngredient";
+import './EditRecipePage.css'
 
 
 const EditRecipePage = () => {
@@ -28,12 +29,15 @@ const EditRecipePage = () => {
 
     
   return ( 
-      <div>
+      <div >
           <EditRecipe id={recipeId}/>
           <EditIngredient id={recipeId}/>
           <IngredientsForm addNewIngredient={addNewIngredient}/>
           {newIngredient.name}
-          <button onClick={() => navigate(`/recipe/${recipeId}`)}>DONE</button>
+          <div className="add-space">
+            <button onClick={() => navigate(`/recipe/${recipeId}`)}>DONE</button>
+          </div>
+          
         
       </div>
     );
