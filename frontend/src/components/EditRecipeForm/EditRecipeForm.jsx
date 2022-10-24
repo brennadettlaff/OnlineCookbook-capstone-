@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
-
+import './EditRecipeForm.css'
 
 const EditRecipeForm = (props) => {
     const [name, setName] = useState('');
@@ -43,22 +43,31 @@ const EditRecipeForm = (props) => {
     }
 
     return ( 
-       
-        <div>
+        <div className="rec-style">
             <form onSubmit={handleSubmit}>
-                <label>Name:</label>
-                <input 
-                    ref={ref} defaultValue={props.recipe.name}
-                    type='text'  
-                    onChange={(event) => setName(event.target.value)}>
-                </input>
-                <label>Description:</label> 
-                <input type='text' defaultValue={props.recipe.description} onChange={(event) => setDescription(event.target.value)}></input>
-                <label>Time:</label>
-                <input type='text' defaultValue={props.recipe.time} onChange={(event) => setTime(event.target.value)}></input>
-                <label>Instructions:</label>
-                <textarea type='text' rows='5' defaultValue={props.recipe.instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
-                <button type='submit'>Save</button>
+                <div className="add-space">
+                    <label>Name:</label>
+                    <input 
+                        ref={ref} defaultValue={props.recipe.name}
+                        type='text' className="inp-style"
+                        onChange={(event) => setName(event.target.value)}>
+                    </input>
+                </div>
+                <div className="add-space">
+                    <label>Time:</label>
+                    <input type='text' className="inp-style" defaultValue={props.recipe.time} onChange={(event) => setTime(event.target.value)}></input>
+                </div>
+                <div className="add-space">
+                    <label>Description:</label> 
+                    <input type='text' className="desc-style" defaultValue={props.recipe.description} onChange={(event) => setDescription(event.target.value)}></input>
+                </div>
+                <div className="add-space">
+                    <div><label>Instructions:</label></div>
+                    <div>
+                        <textarea type='text' rows='10' cols='75' defaultValue={props.recipe.instructions} onChange={(event) => setInstructions(event.target.value)}></textarea>
+                    </div>
+                </div>
+                <button className="add-space" type='submit'>Save</button>
             </form>
         </div>
      );
