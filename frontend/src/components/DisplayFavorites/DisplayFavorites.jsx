@@ -24,7 +24,6 @@ const DisplayFavorites = () => {
 
     return ( 
         <div>
-            <h1>{user.username}'s Favorites</h1>
             {favorites.map((entry, index) => {
                 return(
                     <div key={index}>
