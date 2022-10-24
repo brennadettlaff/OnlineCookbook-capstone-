@@ -53,7 +53,7 @@ const AddToCollection = () => {
                 })}
 
 
-                <button onClick={() => setAdd(!add)}>Cancel</button>
+                <button onClick={() => setAdd(!add)}>Done</button>
 
             </div>
           )}

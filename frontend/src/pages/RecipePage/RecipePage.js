@@ -14,7 +14,7 @@ const RecipePage = () => {
     <div className="add-space">
       <div className="page-buttons"><AddFavorite /></div>
       <div className="page-buttons"> <EditRecipeButton /> </div>
-      <div className="page-buttons"> <AddToCollection /> </div>
+      
  
       <DisplayRecipe />
       
@@ -27,7 +27,7 @@ const RecipePage = () => {
         <h2>Notes</h2>
         <Notes />
       </div>
-      
+      <div > <AddToCollection /> </div>
       
     </div>
   );
