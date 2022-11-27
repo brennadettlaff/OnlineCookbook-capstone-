@@ -25,7 +25,7 @@ const SearchPage = (props) => {
         <div>
             <div>
                 {console.log("Filtered Results:", searchResults)}
-                <>test</>
+                <h1>Results</h1>
                 {searchResults.map((entry, index) =>{
                     return(
                         <div key={index}>
