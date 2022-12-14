@@ -27,3 +27,14 @@ def delete_favorite(request, pk):
     favorite = get_object_or_404(Favorite, pk=pk)
     favorite.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_favorite(request, recipe_id):
+    if request.method == 'GET':
+        # Filter all Favorites by user (only favorites objects that have the user id)
+        # Filter those results by recipe_id
+        user_favorites = Favorite.objects.filter(user_id=request.user.id)
+        favorite = user_favorites.filter(recipe_id=recipe_id)
+        # query on the filter result from line 37
+        serializer = FavoriteSerializer(favorite, many=True)
+        return Response(serializer.data)
