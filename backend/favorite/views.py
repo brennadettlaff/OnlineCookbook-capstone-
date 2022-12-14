@@ -9,7 +9,7 @@ from .serializers import FavoriteSerializer
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def get_favorites(request):
+def get_users_favorites(request):
     if request.method == 'GET':
         favorite = Favorite.objects.filter(user_id=request.user.id)
         serializer = FavoriteSerializer(favorite, many=True)
@@ -31,10 +31,7 @@ def delete_favorite(request, pk):
 @permission_classes([IsAuthenticated])
 def get_favorite(request, recipe_id):
     if request.method == 'GET':
-        # Filter all Favorites by user (only favorites objects that have the user id)
-        # Filter those results by recipe_id
         user_favorites = Favorite.objects.filter(user_id=request.user.id)
         favorite = user_favorites.filter(recipe_id=recipe_id)
-        # query on the filter result from line 37
         serializer = FavoriteSerializer(favorite, many=True)
         return Response(serializer.data)
