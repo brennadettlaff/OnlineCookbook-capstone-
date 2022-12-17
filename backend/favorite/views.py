@@ -34,6 +34,7 @@ def delete_favorite(request, pk):
 def get_favorite(request, recipe_id):
     if request.method == 'GET':
         user_favorites = Favorite.objects.filter(user_id=request.user.id)
-        favorite = get_list_or_404(user_favorites, recipe_id=recipe_id)
+        # favorite = get_list_or_404(user_favorites, recipe_id=recipe_id)
+        favorite = user_favorites.filter(recipe_id=recipe_id)
         serializer = FavoriteSerializer(favorite, many=True)
         return Response(serializer.data)

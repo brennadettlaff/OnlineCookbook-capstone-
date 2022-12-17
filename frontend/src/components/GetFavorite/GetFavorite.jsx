@@ -20,6 +20,15 @@ const GetFavorite = () => {
             },
         })
         console.log("Fav", response)
+        console.log("Status", response.status)
+        console.log("Data", response.data.length)
+        setFavorites(response.data)
+        if(response.data.length == 0) {
+            console.log("like doesn't exists")
+        }
+        else {
+            console.log('like exists') 
+        }
     }
 
     return ( 
