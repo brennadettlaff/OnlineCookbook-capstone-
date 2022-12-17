@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from django.shortcuts import get_list_or_404
 
 from .models import Favorite
 from .serializers import FavoriteSerializer
@@ -27,11 +28,12 @@ def delete_favorite(request, pk):
     favorite = get_object_or_404(Favorite, pk=pk)
     favorite.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_favorite(request, recipe_id):
     if request.method == 'GET':
         user_favorites = Favorite.objects.filter(user_id=request.user.id)
-        favorite = user_favorites.filter(recipe_id=recipe_id)
+        favorite = get_list_or_404(user_favorites, recipe_id=recipe_id)
         serializer = FavoriteSerializer(favorite, many=True)
         return Response(serializer.data)
