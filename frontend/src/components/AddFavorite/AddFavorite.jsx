@@ -23,6 +23,7 @@ const AddFavorite = () => {
         },
         })
         console.log(response)
+        window.location.reload();
     }
 
     return ( 
