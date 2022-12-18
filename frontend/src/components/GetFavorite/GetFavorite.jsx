@@ -28,6 +28,13 @@ const GetFavorite = () => {
         }
         else {
             console.log('like exists') 
+            console.log(response.data[0].fav_toggle)
+            if(response.data[0].fav_toggle == false) {
+                console.log("recipe is not liked")
+            }
+            else {
+                console.log("recipe is liked")
+            }
         }
     }
 
