@@ -24,10 +24,11 @@ def get_users_favorites(request):
 
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
-def delete_favorite(request, pk):
+def edit_favorite(request, pk):
     favorite = get_object_or_404(Favorite, pk=pk)
-    favorite.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
+    if request.method == 'DELETE':
+        favorite.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

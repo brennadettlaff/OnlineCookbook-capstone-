@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.get_users_favorites),
-    path('delete/<int:pk>/', views.delete_favorite),
+    path('delete/<int:pk>/', views.edit_favorite),
     path('recipe/<int:recipe_id>/', views.get_favorite),
 ]
