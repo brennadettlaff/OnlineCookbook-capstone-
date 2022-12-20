@@ -22,13 +22,18 @@ def get_users_favorites(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['DELETE'])
+@api_view(['DELETE', 'PUT'])
 @permission_classes([IsAuthenticated])
 def edit_favorite(request, pk):
     favorite = get_object_or_404(Favorite, pk=pk)
     if request.method == 'DELETE':
         favorite.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    elif request.method == 'PUT':
+        serializer = FavoriteSerializer(favorite, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
