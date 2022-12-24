@@ -20,9 +20,12 @@ const GetFavorite = () => {
             },
         })
         console.log("Fav", response)
-        console.log("Status", response.status)
-        console.log("Data", response.data.length)
         setFavorites(response.data)
+        checkFavorites(favorites)
+    }
+
+    function checkFavorites(fav_data){
+        console.log(fav_data)
         if(response.data.length == 0) {
             console.log("like doesn't exists")
         }
@@ -35,11 +38,12 @@ const GetFavorite = () => {
             else {
                 console.log("recipe is liked")
             }
-        }
-    }
+        }}
+    
 
     return ( 
         <div>
+            
         </div>
      );
 }
