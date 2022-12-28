@@ -26,13 +26,13 @@ const GetFavorite = () => {
 
     function checkFavorites(fav_data){
         console.log(fav_data)
-        if(response.data.length == 0) {
+        if(fav_data.data.length == 0) {
             console.log("like doesn't exists")
         }
         else {
             console.log('like exists') 
-            console.log(response.data[0].fav_toggle)
-            if(response.data[0].fav_toggle == false) {
+            console.log(fav_data.data[0].fav_toggle)
+            if(fav_data.data[0].fav_toggle == false) {
                 console.log("recipe is not liked")
             }
             else {
