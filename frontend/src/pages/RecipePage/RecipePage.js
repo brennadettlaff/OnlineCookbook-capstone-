@@ -8,6 +8,7 @@ import Ingredients from "../../components/Ingredients/Ingredients";
 import { useParams } from "react-router-dom";
 import './RecipePage.css'
 import GetFavorite from "../../components/GetFavorite/GetFavorite";
+import ToggleFavorite from "../../components/ToggleFavorite/ToggleFavorite";
 
 const RecipePage = () => {
   let id = useParams().id
@@ -30,7 +31,7 @@ const RecipePage = () => {
       </div>
       <div > <AddToCollection /> </div>
       
-      <GetFavorite />
+      <ToggleFavorite />
 
     </div>
   );
