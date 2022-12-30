@@ -3,7 +3,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth"; 
 import { useParams } from "react-router-dom";
 
-const GetFavorite = () => {
+const GetFavorite = (props) => {
     const [favorites, setFavorites] = useState([])
     const [user, token] = useAuth();
 
@@ -19,26 +19,11 @@ const GetFavorite = () => {
                 Authorization: "Bearer " + token,
             },
         })
-        console.log("Fav", response)
+        // console.log("Fav", response.data)
         setFavorites(response.data)
-        checkFavorites(favorites)
+        props.checkFavorites(response.data)
+        // checkFavorites(favorites)
     }
-
-    function checkFavorites(fav_data){
-        console.log(fav_data)
-        if(fav_data.data.length == 0) {
-            console.log("like doesn't exists")
-        }
-        else {
-            console.log('like exists') 
-            console.log(fav_data.data[0].fav_toggle)
-            if(fav_data.data[0].fav_toggle == false) {
-                console.log("recipe is not liked")
-            }
-            else {
-                console.log("recipe is liked")
-            }
-        }}
     
 
     return ( 
