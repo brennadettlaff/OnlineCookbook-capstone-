@@ -17,7 +17,7 @@ const HandleFavorite = () => {
                 <AddFavorite />
             }
             {favoriteData.length == 1 &&
-                <ToggleFavorite />
+                <ToggleFavorite favoriteData={favoriteData[0]}/>
             }
         </div>
      );
