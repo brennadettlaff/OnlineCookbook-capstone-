@@ -39,7 +39,6 @@ const EditRecipeForm = (props) => {
         };
         console.log(newRecipe)
         editRecipe(newRecipe)
-        debugger
     }
 
     return ( 

@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
 const ToggleFavorite = (props) => {
-    let recipe_id = props.favoriteData.id
+    let recipe_id = props.favoriteData.recipe.id
     let id = props.favoriteData.id
     const [user, token] = useAuth();
 
@@ -17,9 +16,17 @@ const ToggleFavorite = (props) => {
             fav_toggle: true,
         };
         console.log(newFavorite)
+        changeFavorite(newFavorite)
     }
 
-
+    async function changeFavorite(newFav){
+        let response = await axios.put(`http://127.0.0.1:8000/api/favorite/delete/${id}/`, newFav, {
+            headers: {
+                Authorization: "Bearer " + token,
+            },
+        })
+        console.log(response)
+        }
 
     return ( 
         <div>
