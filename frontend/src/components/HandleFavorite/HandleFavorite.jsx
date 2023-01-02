@@ -1,8 +1,9 @@
 import GetFavorite from "../GetFavorite/GetFavorite"
 import AddFavorite from "../AddFavorite/AddFavorite"
+import ToggleFavorite from "../ToggleFavorite/ToggleFavorite"
 import { useState } from "react"
 
-const ToggleFavorite = () => {
+const HandleFavorite = () => {
     const [favoriteData, setFavoriteData] = useState([])
 
     function passedFavorites(fav_data){
@@ -16,10 +17,10 @@ const ToggleFavorite = () => {
                 <AddFavorite />
             }
             {favoriteData.length == 1 &&
-                <p>Like exists</p>
+                <ToggleFavorite />
             }
         </div>
      );
 }
  
-export default ToggleFavorite;
+export default HandleFavorite;
