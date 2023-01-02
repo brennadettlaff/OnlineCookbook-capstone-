@@ -4,6 +4,8 @@ import axios from "axios";
 const ToggleFavorite = (props) => {
     let recipe_id = props.favoriteData.recipe.id
     let id = props.favoriteData.id
+    let favoriteStatus = props.favoriteData.fav_toggle
+    console.log(props.favoriteData.fav_toggle)
     const [user, token] = useAuth();
 
 
@@ -13,7 +15,7 @@ const ToggleFavorite = (props) => {
             user: user,
             recipe: recipe_id,
             recipe_id: recipe_id,
-            fav_toggle: true,
+            fav_toggle: !favoriteStatus,
         };
         console.log(newFavorite)
         changeFavorite(newFavorite)
