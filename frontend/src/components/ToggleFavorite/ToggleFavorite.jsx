@@ -1,19 +1,14 @@
 import { useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 
 const ToggleFavorite = (props) => {
-
-    // console.log(props.favoriteData.recipe)
-    let recipe_id = props.favoriteData.recipe
+    let recipe_id = props.favoriteData.id
     let id = props.favoriteData.id
     const [user, token] = useAuth();
-    
-    useEffect(() => {
-        handleSubmit()
-    })
+
 
     function handleSubmit(){
-        // event.preventDefault();
         const newFavorite = {
             id: id,
             user: user,
@@ -22,15 +17,13 @@ const ToggleFavorite = (props) => {
             fav_toggle: true,
         };
         console.log(newFavorite)
-        // editRecipe(newRecipe)
     }
 
 
-    return ( 
 
-        
+    return ( 
         <div>
-            <p>Test</p>
+            <button onClick={handleSubmit}>Favorite</button>
         </div>
      );
 }
