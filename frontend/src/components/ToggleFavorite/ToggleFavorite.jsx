@@ -36,12 +36,12 @@ const ToggleFavorite = (props) => {
     return ( 
         <div>
             <div>
-                {favoriteStatus == false &&
+                {favoriteStatus === false &&
                 <button onClick={handleSubmit}>Favorite</button>
                 }
             </div>
             <div>
-                {favoriteStatus == true &&
+                {favoriteStatus === true &&
                 <button onClick={handleSubmit}>Unfavorite</button>
                 }
             </div>
