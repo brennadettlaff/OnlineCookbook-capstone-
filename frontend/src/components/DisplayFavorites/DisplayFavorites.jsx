@@ -15,7 +15,7 @@ const DisplayFavorites = () => {
       }, [])
 
     async function getFavorites(){
-        let response = await axios.get('http://127.0.0.1:8000/api/favorite/', {
+        let response = await axios.get('http://127.0.0.1:8000/api/favorite/recipe/true/', {
             headers: {
                 Authorization: "Bearer " + token,
             },
@@ -30,7 +30,8 @@ const DisplayFavorites = () => {
                     <div key={index}>
                         <h3 onClick={() => navigate(`/recipe/${entry.recipe.id}`)}>{entry.recipe.name}</h3>
                         <div>{entry.recipe.description}</div>
-                        <ToggleFavorite favoriteData={entry}/>
+                        <RemoveFavorite id={entry.id}/>
+                        {/* <ToggleFavorite favoriteData={entry}/> */}
                     </div>
                 )
             })}
