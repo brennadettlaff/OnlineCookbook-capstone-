@@ -2,26 +2,30 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import SearchBar from "../../components/SearchBar/SearchBar";
 import axios from "axios";
+import SearchResults from "../../components/SearchResults/SearchResults";
 
-const SearchPage = (props) => {
-    const [searchResults, setSearchResults] = useState([])
+const SearchPage = () => {
+    // const [searchResults, setSearchResults] = useState([])
 
-    let searchTerm = props.data.data
-    let allRecipes = props.data.allRecipes
-    let navigate = useNavigate();
+    // let searchTerm = props.data.data
+    // let allRecipes = props.data.allRecipes
+    // let navigate = useNavigate();
 
-    useEffect(() =>{
-        filterRecipes(searchTerm)
-    }, [searchTerm])
+    // useEffect(() =>{
+    //     filterRecipes(searchTerm)
+    // }, [searchTerm])
 
-    function filterRecipes(search){
-        let filteredResults = allRecipes.filter((recipe)=>{
-            if(recipe.name.includes(search)){
-                return true
-            }
-        })
-        setSearchResults(filteredResults)
-    }
+    // function filterRecipes(search){
+    //     let filteredResults = allRecipes.filter((recipe)=>{
+    //         if(recipe.name.includes(search)){
+    //             return true
+    //         }
+    //     })
+    //     setSearchResults(filteredResults)
+    // }
+
+
+
     const [data, setData] = useState('');
     const [totalRecipes, setTotalRecipes] = useState([])
 
@@ -47,8 +51,9 @@ const SearchPage = (props) => {
     return ( 
         <div>
             <SearchBar />
+            {/* <SearchResults /> */}
             <div>
-                {console.log("Filtered Results:", searchResults)}
+                {/* {console.log("Filtered Results:", searchResults)}
                 <h1>Results</h1>
                 {searchResults.map((entry, index) =>{
                     return(
@@ -57,7 +62,7 @@ const SearchPage = (props) => {
                             <div>{entry.description} </div>
                         </div>
                     )
-                })}
+                })} */}
             </div>
         </div>
      );
