@@ -69,6 +69,7 @@ function App() {
         <Route path="/edit/:id" element={<EditRecipePage />} />
         <Route path="/addrecipe/" element={<AddRecipePage />} />
         <Route path="/search/" element={<SearchPage  />} />
+        {/* <Route path="/search/" element={<SearchPage  data={passedInfo}/>} /> */}
         <Route path="/favorites/" element={<FavoritesPage  />} />
         <Route path="/collections/" element={<CollectionsPage  />} />
         <Route path="/collection/:id" element={<CollectionPage  />} />
