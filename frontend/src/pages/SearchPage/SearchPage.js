@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import SearchBar from "../../components/SearchBar/SearchBar";
+import axios from "axios";
 
 const SearchPage = (props) => {
     const [searchResults, setSearchResults] = useState([])
@@ -20,9 +22,31 @@ const SearchPage = (props) => {
         })
         setSearchResults(filteredResults)
     }
+    const [data, setData] = useState('');
+    const [totalRecipes, setTotalRecipes] = useState([])
 
+    useEffect(() => {
+        passedSearchTerm();
+        getAllRecipes();
+    }, [])
+
+    function passedSearchTerm(search_term){
+        let response = search_term 
+        setData(response)
+    };
+
+    async function getAllRecipes(){
+        let response = await axios.get('http://127.0.0.1:8000/api/recipe/')
+        setTotalRecipes(response.data)
+    }
+
+    const passedInfo = {
+        data: data, 
+        totalRecipes: totalRecipes
+    }
     return ( 
         <div>
+            <SearchBar />
             <div>
                 {console.log("Filtered Results:", searchResults)}
                 <h1>Results</h1>

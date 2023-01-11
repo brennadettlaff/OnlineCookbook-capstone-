@@ -15,7 +15,8 @@ const DisplayFavorites = () => {
       }, [])
 
     async function getFavorites(){
-        let response = await axios.get('http://127.0.0.1:8000/api/favorite/recipe/true/', {
+        let response = await axios.get('http://127.0.0.1:8000/api/favorite/', {
+            // 'http://127.0.0.1:8000/api/favorite/recipe/true/'
             headers: {
                 Authorization: "Bearer " + token,
             },

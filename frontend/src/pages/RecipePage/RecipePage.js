@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 import './RecipePage.css'
 import GetFavorite from "../../components/GetFavorite/GetFavorite";
 import ToggleFavorite from "../../components/HandleFavorite/HandleFavorite";
-import HandleFavorite from "../../components/HandleFavorite/HandleFavorite";
 
 const RecipePage = () => {
   let id = useParams().id
