@@ -36,22 +36,27 @@ const SearchPage = () => {
 
     function passedSearchTerm(search_term){
         let response = search_term 
+        console.log("response", response)
         setData(response)
+        console.log("Data", data)
     };
 
     async function getAllRecipes(){
         let response = await axios.get('http://127.0.0.1:8000/api/recipe/')
+        console.log(response)
         setTotalRecipes(response.data)
     }
 
     const passedInfo = {
         data: data, 
         totalRecipes: totalRecipes
+        
     }
+        console.log(passedInfo)
     return ( 
         <div>
-            <SearchBar />
-            {/* <SearchResults /> */}
+            <SearchBar submittedSearchTerm={passedSearchTerm}/>
+            <SearchResults data={passedInfo}/>
             <div>
                 {/* {console.log("Filtered Results:", searchResults)}
                 <h1>Results</h1>
