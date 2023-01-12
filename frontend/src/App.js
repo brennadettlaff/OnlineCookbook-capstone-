@@ -26,33 +26,10 @@ import CollectionsPage from "./pages/CollectionsPage/CollectionsPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 
 function App() {
-  // const [data, setData] = useState('');
-  // const [allRecipes, setAllRecipes] = useState([])
-
-  // useEffect(() => {
-  //   passedSearchTerm();
-  //   getAllRecipes();
-  // }, [])
-
-  // function passedSearchTerm(search_term){
-  //   let response = search_term 
-  //   setData(response)
-  // };
-
-  // async function getAllRecipes(){
-  //   let response = await axios.get('http://127.0.0.1:8000/api/recipe/')
-  //   setAllRecipes(response.data)
-  // }
-
-  // const passedInfo = {
-  //   data: data, 
-  //   allRecipes: allRecipes
-  // }
 
   return (
     <div>
       <Navbar />
-      {/* <SearchBar submittedSearchTerm={passedSearchTerm}/> */}
 
       <Routes>
         <Route
@@ -69,7 +46,6 @@ function App() {
         <Route path="/edit/:id" element={<EditRecipePage />} />
         <Route path="/addrecipe/" element={<AddRecipePage />} />
         <Route path="/search/" element={<SearchPage  />} />
-        {/* <Route path="/search/" element={<SearchPage  data={passedInfo}/>} /> */}
         <Route path="/favorites/" element={<FavoritesPage  />} />
         <Route path="/collections/" element={<CollectionsPage  />} />
         <Route path="/collection/:id" element={<CollectionPage  />} />
