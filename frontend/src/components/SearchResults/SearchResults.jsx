@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+
 const SearchResults = (props) => {
     const [searchResults, setSearchResults] = useState([])
     const [totalRecipes, setTotalRecipes] = useState([])
 
-        let searchTerm = props.data.data
-        console.log("SearchTerm", searchTerm)
-        let allRecipes = props.data.allRecipes
-        console.log("All Recipes", totalRecipes)
+        let searchTerm = props.data
+        
         let navigate = useNavigate();
 
         useEffect(() =>{
             getAllRecipes()
-            // filterRecipes(searchTerm)
         }, [searchTerm])
 
         async function getAllRecipes(){
@@ -30,12 +28,9 @@ const SearchResults = (props) => {
             })
             setSearchResults(filteredResults)
         }
-
-
         
     return ( 
         <div>
-            {console.log("Filtered Results:", searchResults)}
             <h1>Results</h1>
             {searchResults.map((entry, index) =>{
                 return(

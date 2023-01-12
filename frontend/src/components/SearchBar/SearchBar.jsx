@@ -11,7 +11,6 @@ const SearchBar = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         props.submittedSearchTerm(searchInput)
-        console.log("Search input", searchInput)
         navigate('/search')
     };
 
