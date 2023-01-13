@@ -16,6 +16,7 @@ const SearchPage = () => {
 
     return ( 
         <div>
+            <h1>Search for Recipes</h1>
             <SearchBar submittedSearchTerm={passedSearchTerm}/>
             <SearchResults data={data}/>
         </div>

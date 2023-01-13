@@ -31,7 +31,6 @@ const SearchResults = (props) => {
         
     return ( 
         <div>
-            <h1>Results</h1>
             {searchResults.map((entry, index) =>{
                 return(
                     <div key={index}>
