@@ -1,13 +1,11 @@
 import React from "react";
 import DisplayRecipe from "../../components/DisplayRecipe/DisplayRecipe";
 import Notes from "../../components/Notes/Notes";
-import AddFavorite from "../../components/AddFavorite/AddFavorite"
 import AddToCollection from "../../components/AddToCollection/AddToCollection";
 import EditRecipeButton from "../../components/EditRecipeButton/EditRecipeButton";
 import Ingredients from "../../components/Ingredients/Ingredients";
 import { useParams } from "react-router-dom";
 import './RecipePage.css'
-import GetFavorite from "../../components/GetFavorite/GetFavorite";
 import HandleFavorite from "../../components/HandleFavorite/HandleFavorite";
 
 const RecipePage = () => {

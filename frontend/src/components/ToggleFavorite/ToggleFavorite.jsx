@@ -9,7 +9,6 @@ const ToggleFavorite = (props) => {
 
     const [user, token] = useAuth();
     const [toggle, setToggle] = useState(favoriteStatus)
-    console.log(toggle)
 
     function handleSubmit(){
         const newFavorite = {
@@ -29,7 +28,6 @@ const ToggleFavorite = (props) => {
                 Authorization: "Bearer " + token,
             },
         })
-        console.log(response)
         window.location.reload()
         }
 

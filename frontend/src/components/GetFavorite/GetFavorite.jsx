@@ -19,11 +19,8 @@ const GetFavorite = (props) => {
                 Authorization: "Bearer " + token,
             },
         })
-        // console.log("Fav", response.data)
         setFavorites(response.data)
-        console.log(response.data[0])
         props.checkFavorites(response.data)
-        // checkFavorites(favorites)
     }
     
 
