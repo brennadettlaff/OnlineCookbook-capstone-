@@ -22,7 +22,8 @@ const SearchResults = (props) => {
 
         function filterRecipes(search){
             let filteredResults = totalRecipes.filter((recipe)=>{
-                if(recipe.name.includes(search)){
+                let searchInput = search.toLowerCase()
+                if(recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)){
                     return true
                 }
             })
