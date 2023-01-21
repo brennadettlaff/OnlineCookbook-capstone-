@@ -17,9 +17,9 @@ const RecipePage = () => {
 
   const [recipe, setRecipe] = useState([]);
   const [user] = useAuth();
-  console.log(user.id)
-  // console.log("User Data", recipe[0].user)
+  const [owner, setOwner] = useState()
 
+  console.log(user.id)
 
   let recipeId = useParams().id
 
@@ -30,17 +30,25 @@ const RecipePage = () => {
   async function getRecipe(){
     let response = await axios.get(`http://127.0.0.1:8000/api/recipe/details/${recipeId}/`)
     setRecipe(response.data)
-    // console.log("Data", response.data)
     console.log("User Data", response.data[0].user.id)
+    showEditButton(); 
+  }
+
+  function showEditButton(){
+    if(user.id == recipe[0].user.id){
+      setOwner(true)
+      console.log("working")
+    } else {setOwner(false)} 
+    console.log(owner)
   }
 
   return (
     <div className="add-space">
       <div className="page-buttons"><HandleFavorite /></div>
-      {user.id == recipe[0].user.id &&
+      {owner == true &&
         <div className="page-buttons"> <EditRecipeButton /> </div>
       }
-      {/* <div className="page-buttons"> <EditRecipeButton /> </div> */}
+      
       
  
       <DisplayRecipe />
