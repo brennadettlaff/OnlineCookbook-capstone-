@@ -13,7 +13,6 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
 const RecipePage = () => {
-  let id = useParams().id
 
   const [recipe, setRecipe] = useState([]);
   const [user] = useAuth();
@@ -55,7 +54,7 @@ const RecipePage = () => {
       
       <div className="ingred"> 
         <h2>Ingredients</h2>
-        <Ingredients id={id}/>
+        <Ingredients recipeId={recipeId}/>
       </div>
       
       <div className="ingred">

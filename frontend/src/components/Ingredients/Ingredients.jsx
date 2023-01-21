@@ -11,7 +11,7 @@ const Ingredients = (props) => {
       }, [])
     
       async function getIngredients(){
-        let response = await axios.get(`http://127.0.0.1:8000/api/ingredients/view/${props.id}/`)
+        let response = await axios.get(`http://127.0.0.1:8000/api/ingredients/view/${props.recipeId}/`)
         setIngredients(response.data)
       }
 
