@@ -8,8 +8,26 @@ import { useParams } from "react-router-dom";
 import './RecipePage.css'
 import HandleFavorite from "../../components/HandleFavorite/HandleFavorite";
 
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 const RecipePage = () => {
   let id = useParams().id
+
+  const [recipe, setRecipe] = useState([]);
+
+  let recipeId = useParams().id
+
+  useEffect(() => {
+    getRecipe();
+  }, [])
+
+  async function getRecipe(){
+    let response = await axios.get(`http://127.0.0.1:8000/api/recipe/details/${recipeId}/`)
+    setRecipe(response.data)
+    console.log("Data", response.data)
+  }
+
   return (
     <div className="add-space">
       <div className="page-buttons"><HandleFavorite /></div>

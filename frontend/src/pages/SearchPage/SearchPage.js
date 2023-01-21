@@ -11,6 +11,7 @@ const SearchPage = () => {
 
     function passedSearchTerm(search_term){
         let response = search_term 
+        console.log("Search Term", response)
         setData(response)
     };
 
