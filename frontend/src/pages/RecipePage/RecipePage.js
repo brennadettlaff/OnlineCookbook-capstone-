@@ -45,10 +45,10 @@ const RecipePage = () => {
   return (
     <div className="add-space">
       <div className="page-buttons"><HandleFavorite /></div>
-      {owner == true &&
+      {/* {owner == true &&
         <div className="page-buttons"> <EditRecipeButton /> </div>
-      }
-      
+      } */}
+      <div className="page-buttons"> <EditRecipeButton owner={owner}/> </div>
       
  
       <DisplayRecipe />
