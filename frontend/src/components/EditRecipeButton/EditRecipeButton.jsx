@@ -4,11 +4,8 @@ import useAuth from "../../hooks/useAuth";
 
 const EditRecipeButton = (props) => {
     const [user] = useAuth();
-
     let pageId = useParams().id
     let navigate = useNavigate();
-    console.log("props", props)
-    console.log(user.id)
 
     return ( 
         <div>
