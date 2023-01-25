@@ -24,7 +24,8 @@ const RecipePage = () => {
 
   async function getRecipe(){
     let response = await axios.get(`http://127.0.0.1:8000/api/recipe/details/${recipeId}/`)
-    setRecipe(response.data[0])
+    setRecipe(response.data)
+    // console.log(response.data[0])
     setUserId(response.data[0].user.id)
   }
 
@@ -35,7 +36,7 @@ const RecipePage = () => {
 
       <div className="page-buttons"> <EditRecipeButton userId={userId}/> </div>      
  
-      <DisplayRecipe />
+      <DisplayRecipe recipe={recipe}/>
       
       <div className="ingred"> 
         <h2>Ingredients</h2>
