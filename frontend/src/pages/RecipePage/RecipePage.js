@@ -10,15 +10,11 @@ import HandleFavorite from "../../components/HandleFavorite/HandleFavorite";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import useAuth from "../../hooks/useAuth";
 
 const RecipePage = () => {
 
   const [recipe, setRecipe] = useState([]);
-  const [user] = useAuth();
-  const [owner, setOwner] = useState()
-
-  console.log(user.id)
+  const [userId, setUserId] = useState()
 
   let recipeId = useParams().id
 
@@ -28,27 +24,16 @@ const RecipePage = () => {
 
   async function getRecipe(){
     let response = await axios.get(`http://127.0.0.1:8000/api/recipe/details/${recipeId}/`)
-    setRecipe(response.data)
-    console.log("User Data", response.data[0].user.id)
-    showEditButton(); 
+    setRecipe(response.data[0])
+    setUserId(response.data[0].user.id)
   }
 
-  function showEditButton(){
-    if(user.id == recipe[0].user.id){
-      setOwner(true)
-      console.log("working")
-    } else {setOwner(false)} 
-    console.log(owner)
-  }
 
   return (
     <div className="add-space">
       <div className="page-buttons"><HandleFavorite /></div>
-      {/* {owner == true &&
-        <div className="page-buttons"> <EditRecipeButton /> </div>
-      } */}
-      <div className="page-buttons"> <EditRecipeButton owner={owner}/> </div>
-      
+
+      <div className="page-buttons"> <EditRecipeButton userId={userId}/> </div>      
  
       <DisplayRecipe />
       
