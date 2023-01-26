@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from 'react-router-dom';
+import EditCollection from "../EditCollection/EditCollection";
 
 const CollectionsList = () => {
     const [collections, setCollections] = useState([])
@@ -30,6 +31,7 @@ const CollectionsList = () => {
                     <div key={index}>
                         <h2 onClick={() => navigate(`/collection/${entry.id}`)}>{entry.name}</h2>
                         <div>{entry.description}</div>
+                        <EditCollection />
                     </div>
                 )
             })}
