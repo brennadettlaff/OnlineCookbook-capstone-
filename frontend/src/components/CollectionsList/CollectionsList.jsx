@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from 'react-router-dom';
-import EditCollection from "../EditCollection/EditCollection";
 import CollectionsDisplay from "../CollectionsDisplay/CollectionsDisplay";
 
 const CollectionsList = () => {
@@ -28,7 +27,6 @@ const CollectionsList = () => {
         <div>
             <h1>{user.username}'s Collections</h1>
             <CollectionsDisplay collections={collections}/>
-            <EditCollection />
         </div>
      );
 }

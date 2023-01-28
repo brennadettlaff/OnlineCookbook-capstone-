@@ -22,7 +22,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
-import CollectionsPage from "./pages/CollectionsPage/CollectionsPage";
+import CollectionsDisplayPage from "./pages/CollectionsDisplayPage/CollectionsDisplayPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
         <Route path="/addrecipe/" element={<AddRecipePage />} />
         <Route path="/search/" element={<SearchPage  />} />
         <Route path="/favorites/" element={<FavoritesPage  />} />
-        <Route path="/collections/" element={<CollectionsPage  />} />
+        <Route path="/collections/" element={<CollectionsDisplayPage  />} />
         <Route path="/collection/:id" element={<CollectionPage  />} />
       </Routes>
       <Footer />
