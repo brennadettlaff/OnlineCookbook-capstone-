@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import DisplayCollectionRecipes from "../../components/DisplayCollectionRecipes/DisplayCollectionRecipes";
 
 const CollectionPage = () => {
     const [collection, setCollection] = useState([])
@@ -20,6 +21,7 @@ const CollectionPage = () => {
     
     return ( 
         <div>
+            <DisplayCollectionRecipes />
             {collection.map((entry, index) => {
                 return(
                     <div key={index}>
