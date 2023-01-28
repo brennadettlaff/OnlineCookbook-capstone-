@@ -27,16 +27,8 @@ const CollectionsList = () => {
     return ( 
         <div>
             <h1>{user.username}'s Collections</h1>
-            {collections.map((entry, index) => {
-                return(
-                    <div key={index}>
-                        <h2 onClick={() => navigate(`/collection/${entry.id}`)}>{entry.name}</h2>
-                        <div>{entry.description}</div>
-                        <CollectionsDisplay />
-                        <EditCollection />
-                    </div>
-                )
-            })}
+            <CollectionsDisplay collections={collections}/>
+            <EditCollection />
         </div>
      );
 }
