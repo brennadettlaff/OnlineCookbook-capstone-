@@ -20,3 +20,11 @@ def get_collections(request):
             serializer.save(user = request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def collection_details(request, pk):  
+    if request.method == 'GET':
+        collection = Collection.objects.filter(pk=pk)
+        serializer = CollectionSerializer(collection, many=True)
+        return Response(serializer.data)    
