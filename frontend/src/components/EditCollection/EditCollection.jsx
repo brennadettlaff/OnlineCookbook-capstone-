@@ -1,6 +1,9 @@
+import React from "react";
 const EditCollection = () => {
     return ( 
-        <div></div>
+        <div>
+            <button>Edit</button>
+        </div>
      );
 }
  
