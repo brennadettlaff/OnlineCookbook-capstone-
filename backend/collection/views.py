@@ -27,4 +27,16 @@ def collection_details(request, pk):
     if request.method == 'GET':
         collection = Collection.objects.filter(pk=pk)
         serializer = CollectionSerializer(collection, many=True)
-        return Response(serializer.data)    
+        return Response(serializer.data)   
+
+
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def edit_collection(request, pk):
+    collection = get_object_or_404(Collection, pk=pk)
+    if request.method == 'PUT':
+        serializer = CollectionSerializer(collection, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
