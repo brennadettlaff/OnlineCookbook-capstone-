@@ -29,9 +29,7 @@ def collection_details(request, pk):
         serializer = CollectionSerializer(collection, many=True)
         return Response(serializer.data)   
 
-
-
-@api_view(['PUT'])
+@api_view(['PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def edit_collection(request, pk):
     collection = get_object_or_404(Collection, pk=pk)
@@ -40,3 +38,6 @@ def edit_collection(request, pk):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    elif request.method == 'DELETE':
+        collection.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
