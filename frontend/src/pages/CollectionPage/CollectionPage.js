@@ -23,7 +23,7 @@ const CollectionPage = () => {
         <div>
             
             <h2>{collectionData.name}</h2>
-            <EditCollection />
+            <EditCollection collectionData={collectionData}/>
             <DisplayCollectionRecipes />
 
         </div>

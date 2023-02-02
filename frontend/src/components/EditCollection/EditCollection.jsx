@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
-const EditCollection = () => {
+const EditCollection = (props) => {
     const [toggle, setToggle] = useState(true);
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [user, token] = useAuth()
-    
+    console.log("here", props.collectionData)
+
     function handleSubmit(event){
         event.preventDefault();
         const newCollectionInfo = {
@@ -19,8 +20,8 @@ const EditCollection = () => {
         editCollection(newCollectionInfo)
     }
 
-    async function editCollection(collectionData){
-        let response = await axios.put(`http://127.0.0.1:8000/api/collection/edit/1/`, collectionData, {
+    async function editCollection(newCollectionData){
+        let response = await axios.put(`http://127.0.0.1:8000/api/collection/edit/${props.collectionData.id}/`, newCollectionData, {
             headers: {
                 Authorization: "Bearer " + token,
             },
