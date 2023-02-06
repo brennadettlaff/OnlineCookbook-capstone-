@@ -26,3 +26,11 @@ def add_junction(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def edit_recipe_collection(request, pk):
+    recipe_collection = get_object_or_404(Recipe_Collection, pk=pk)
+    if request.method == 'DELETE':
+        recipe_collection.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
