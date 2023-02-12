@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import DisplayCollectionRecipes from "../../components/DisplayCollectionRecipes/DisplayCollectionRecipes";
 import EditCollection from "../../components/EditCollection/EditCollection";
+import EditCollectionWindow from "../../components/EditCollectionWindow/EditCollectionWindow";
 
 const CollectionPage = () => {
     const [collectionData, setCollectionData] = useState([])
@@ -23,6 +24,7 @@ const CollectionPage = () => {
         <div>
             
             <h2>{collectionData.name}</h2>
+            <EditCollectionWindow />
             <EditCollection collectionData={collectionData}/>
             <DisplayCollectionRecipes />
 
