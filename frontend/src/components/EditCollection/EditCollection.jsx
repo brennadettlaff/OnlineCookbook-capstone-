@@ -3,11 +3,10 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
 const EditCollection = (props) => {
-    const [toggle, setToggle] = useState(true);
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [user, token] = useAuth()
-    console.log("here", props.collectionData)
+    console.log("here", props.collectionInfo)
 
     function handleSubmit(event){
         event.preventDefault();
@@ -21,7 +20,7 @@ const EditCollection = (props) => {
     }
 
     async function editCollection(newCollectionData){
-        let response = await axios.put(`http://127.0.0.1:8000/api/collection/edit/${props.collectionData.id}/`, newCollectionData, {
+        let response = await axios.put(`http://127.0.0.1:8000/api/collection/edit/${props.collectionInfo.id}/`, newCollectionData, {
             headers: {
                 Authorization: "Bearer " + token,
             },
@@ -31,26 +30,17 @@ const EditCollection = (props) => {
 
     return ( 
         <div>
-            {toggle ? (
+            <form onSubmit={handleSubmit}>
                 <div>
-                     <button onClick={()=> setToggle(!toggle)}>Edit</button>
+                    <label>Name</label>
+                    <input type='text' value={name}  onChange={(event) => setName(event.target.value)}></input>
                 </div>
-            ):(
                 <div>
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>Name</label>
-                            <input type='text' value={name}  onChange={(event) => setName(event.target.value)}></input>
-                        </div>
-                        <div>
-                            <label>Description</label>
-                            <input type='text' value={description} onChange={(event) => setDescription(event.target.value)}></input>
-                        </div>
-                        <button type='submit'>Submit</button>
-                    </form>
-                    <button onClick={() => setToggle(!toggle)}>Save</button>
+                    <label>Description</label>
+                    <input type='text' value={description} onChange={(event) => setDescription(event.target.value)}></input>
                 </div>
-            )}
+                {/* <button type='submit'>Submit</button> */}
+            </form>
         </div>
      );
 }

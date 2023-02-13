@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import DisplayCollectionRecipes from "../../components/DisplayCollectionRecipes/DisplayCollectionRecipes";
-import EditCollection from "../../components/EditCollection/EditCollection";
 import EditCollectionWindow from "../../components/EditCollectionWindow/EditCollectionWindow";
 
 const CollectionPage = () => {
@@ -17,7 +16,6 @@ const CollectionPage = () => {
         let response = await axios.get(`http://127.0.0.1:8000/api/collection/details/${id}/`, {
         })
         setCollectionData(response.data[0])
-        console.log(response.data[0])
     }    
     
     return ( 

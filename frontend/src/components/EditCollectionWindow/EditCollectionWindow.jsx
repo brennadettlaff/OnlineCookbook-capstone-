@@ -9,7 +9,6 @@ function EditCollectionWindow(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log("passed", props.collectionData)
   let collectionInfo = props.collectionData
   
   return (
@@ -25,7 +24,7 @@ function EditCollectionWindow(props) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Edit {collectionInfo.name} Collection</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <EditCollection collectionInfo={collectionInfo}/>
