@@ -24,8 +24,7 @@ const CollectionPage = () => {
         <div>
             
             <h2>{collectionData.name}</h2>
-            <EditCollectionWindow />
-            <EditCollection collectionData={collectionData}/>
+            <EditCollectionWindow collectionData={collectionData}/>
             <DisplayCollectionRecipes />
 
         </div>

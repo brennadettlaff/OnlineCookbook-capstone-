@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import EditCollection from '../EditCollection/EditCollection';
 
-function EditCollectionWindow() {
+function EditCollectionWindow(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  console.log("passed", props.collectionData)
+  let collectionInfo = props.collectionData
+  
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -24,14 +28,13 @@ function EditCollectionWindow() {
           <Modal.Title>Modal title</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          I will not close if you click outside me. Don't even try to press
-          escape key.
+          <EditCollection collectionInfo={collectionInfo}/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Understood</Button>
+          <Button variant="primary">Save</Button>
         </Modal.Footer>
       </Modal>
     </>
