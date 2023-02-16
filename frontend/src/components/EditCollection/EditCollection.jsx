@@ -3,8 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
 const EditCollection = (props) => {
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
+    const [name, setName] = useState(props.collectionInfo.name)
+    const [description, setDescription] = useState(props.collectionInfo.description)
     const [user, token] = useAuth()
     console.log("here", props.collectionInfo)
 
@@ -33,7 +33,10 @@ const EditCollection = (props) => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Name</label>
-                    <input type='text' value={name}  onChange={(event) => setName(event.target.value)}></input>
+                    <input 
+                        type='text' value={name}  
+                        onChange={(event) => setName(event.target.value)}
+                    />
                 </div>
                 <div>
                     <label>Description</label>
