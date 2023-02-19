@@ -30,6 +30,7 @@ const EditIngredientForm = (props) => {
                 recipe_id: recipeId,
             };
             editIngredient(newIngredient)
+            setToggle(!toggle)
         }
 
     return ( 
@@ -46,7 +47,6 @@ const EditIngredientForm = (props) => {
                     <input type='text' value={name} onChange={(event) => setName(event.target.value)}></input>
                     <button type='submit'>Submit</button>
                 </form>
-                <button onClick={() => setToggle(!toggle)}>Save</button>
             </div>
           )}
         </div>
