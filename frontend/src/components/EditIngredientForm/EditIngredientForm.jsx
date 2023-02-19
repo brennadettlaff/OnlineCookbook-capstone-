@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
@@ -6,9 +6,9 @@ import { useParams } from "react-router-dom";
 const EditIngredientForm = (props) => {
     const [user, token] = useAuth()
     const [toggle, setToggle] = useState(true);
-    const [name, setName] = useState('')
+    const [name, setName] = useState(props.data.name)
 
-    console.log("here", props.data.id)
+    console.log("here", props.data.name)
     let ingredientId = props.data.id
     let recipeId = useParams().id;
 
